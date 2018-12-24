@@ -1,0 +1,11 @@
+CREATE PROCEDURE SPR_DeleteOldImports
+AS
+BEGIN
+	DELETE FROM Photo
+	WHERE
+		DateImported <= DATEADD(MINUTE, -10, GetDate())
+	
+	DELETE FROM StocklistImport
+	WHERE
+		DateImported <= DATEADD(MINUTE, -10, GetDate())
+END

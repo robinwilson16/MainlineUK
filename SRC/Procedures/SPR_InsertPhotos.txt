@@ -1,0 +1,14 @@
+CREATE PROCEDURE SPR_InsertPhotos
+AS
+BEGIN
+	INSERT INTO Photo
+	(
+		StocklistImportID,
+		PhotoPath
+	)
+	SELECT
+		SL.StocklistImportID,
+		PhotoPath = IMG.Value
+	FROM StocklistImport SL
+	CROSS APPLY STRING_SPLIT ( SL.Images, ',' ) IMG
+END

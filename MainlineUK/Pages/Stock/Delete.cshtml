@@ -1,0 +1,262 @@
+﻿@page
+@model MainlineUK.Pages.Stock.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>StocklistImport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.DealerID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.DealerID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.StockItemID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.StockItemID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.CreatedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Category)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Registration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Registration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.RegCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.RegCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Make)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Make)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Model)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Derivative)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Derivative)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.AttentionGrabber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.AttentionGrabber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.EngineSize)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.EngineSize)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.EngineSizeUnit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.EngineSizeUnit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.FuelType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.FuelType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.ManufacturedYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.ManufacturedYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Mileage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Mileage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.MileageUnit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.MileageUnit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.BodyType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.BodyType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Colour)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Colour)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Transmission)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Transmission)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Doors)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Doors)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.PreviousOwners)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.PreviousOwners)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.PriceExtra)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.PriceExtra)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.AdvertDescription1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.AdvertDescription1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.AdvertDescription2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.AdvertDescription2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.WheelBaseType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.WheelBaseType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.CabType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.CabType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.FourWheelDrive)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.FourWheelDrive)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.FranchiseApproved)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.FranchiseApproved)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Style)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Style)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.SubStyle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.SubStyle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Hours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Hours)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.NumberOfBerths)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.NumberOfBerths)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Axle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Axle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.DealerReference)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.DealerReference)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.Images)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.Images)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.VideoURL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.VideoURL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.DateOfRegistration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.DateOfRegistration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.ServiceHistory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.ServiceHistory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StocklistImport.DateImported)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StocklistImport.DateImported)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="StocklistImport.StocklistImportID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

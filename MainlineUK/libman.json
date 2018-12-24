@@ -14,12 +14,12 @@
     },
     {
       "provider": "cdnjs",
-      "library": "popper.js@1.14.4",
+      "library": "popper.js@1.14.6",
       "destination": "wwwroot/lib/popper.js/"
     },
     {
-      "provider": "cdnjs",
-      "library": "font-awesome@4.7.0",
+      "provider": "unpkg",
+      "library": "@fortawesome/fontawesome-free@5.6.0",
       "destination": "wwwroot/lib/font-awesome/"
     }
   ]

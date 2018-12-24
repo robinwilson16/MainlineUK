@@ -1,0 +1,286 @@
+﻿@page "{sortOrder?}/{pageIndex?}"
+@model MainlineUK.Pages.Stock.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="top">Your new car is just a few clicks away</h2>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid">
+                <form method="get" id="SearchForm">
+                    <div class="row Filters">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="make" class="form-control" asp-items="Model.Makes" id="FilterMake">
+                                    <option value="" selected>🔱 Select make...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="model" class="form-control" asp-items="Model.Models" id="FilterModel">
+                                    <option value="" selected>🚘 Select model...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="min_price" class="form-control" asp-items="Model.PricesFrom" id="FilterPriceFrom">
+                                    <option value="" selected>💰 Prices from...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="max_price" class="form-control" asp-items="Model.PricesTo" id="FilterPriceTo">
+                                    <option value="" selected>💷 Prices to...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="mileage" class="form-control" asp-items="Model.Mileage" id="FilterMileage">
+                                    <option value="" selected>🛣 Mileage...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="transmission" class="form-control" asp-items="Model.Transmission" id="FilterTransmission">
+                                    <option value="" selected>⚙ Transmission...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="fuel_type" class="form-control" asp-items="Model.FuelType" id="FilterFuelType">
+                                    <option value="" selected>⛽ Fuel type...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="form-group">
+                                <select name="body_type" class="form-control" asp-items="Model.BodyType" id="FilterBodyType">
+                                    <option value="" selected>🚙 Body type...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<div class="container-fluid" id="StockList">
+    <div class="row">
+        @foreach (var item in Model.StocklistImport)
+        {
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 StockListItem">
+                <div class="card spacer">
+                    <div class="CarPrice">
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </div>
+                    <div class="carouselArea">
+                        <div class="carouselFrame">
+                            <div id="@("PhotoCarousel" + @item.StocklistImportID)" class="carousel slide lazy" data-ride="carousel" data-interval="0">
+                                <ol class="carousel-indicators">
+                                    @{int photoNum = 0;}
+                                    @{string classRef = "";}
+                                    @foreach (var photo in item.Photo)
+                                    {
+                                        if (photoNum == 0)
+                                        {
+                                            classRef = "active";
+                                        }
+                                        else
+                                        {
+                                            classRef = "";
+                                        }
+                                        <li data-target="@("#PhotoCarousel" + @item.StocklistImportID)" data-slide-to="@photoNum" class="@classRef"></li>
+                                        photoNum++;
+                                    }
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                                    @{photoNum = 0;}
+                                    @{classRef = "";}
+                                    @{string tagName = "";}
+                                    @foreach (var photo in item.Photo)
+                                    {
+                                        if (photoNum == 0)
+                                        {
+                                            classRef = "active";
+                                            tagName = "src";
+                                        }
+                                        else
+                                        {
+                                            classRef = "";
+                                            tagName = "data-src";
+                                        }
+                                        <div class="carousel-item @classRef">
+                                            <a class="OpenCar" data-toggle="modal" data-id="@item.StocklistImportID" data-target="#CarModal" data-loading-text="@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative) (@Html.DisplayFor(modelItem => item.ManufacturedYear))">
+                                                <img @tagName="/stockdata/images/@item.StocklistImportID/@(photo.PhotoID + ".jpg")" alt="Images of @Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative)" class="card-img-top" />
+                                            </a>
+                                        </div>
+                                        photoNum++;
+                                    }
+                                </div>
+                                <a class="carousel-control-prev" href="@("#PhotoCarousel" + @item.StocklistImportID)" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="@("#PhotoCarousel" + @item.StocklistImportID)" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="#" class="OpenCar" data-toggle="modal" data-id="@item.StocklistImportID" data-target="#CarModal" data-loading-text="@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative) (@Html.DisplayFor(modelItem => item.ManufacturedYear))">
+                                @Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative) (@Html.DisplayFor(modelItem => item.ManufacturedYear))
+                            </a>
+                        </h5>
+                        <h6 class="card-title">
+                            <a href="#" class="OpenCar" data-toggle="modal" data-id="@item.StocklistImportID" data-target="#CarModal" data-loading-text="@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative) (@Html.DisplayFor(modelItem => item.ManufacturedYear))">
+                                @Html.DisplayFor(modelItem => item.AttentionGrabber)
+                            </a>
+                        </h6>
+
+                        <a href="#" class="OpenCar NoHighlight" data-toggle="modal" data-id="@item.StocklistImportID" data-target="#CarModal" data-loading-text="@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative) (@Html.DisplayFor(modelItem => item.ManufacturedYear))">
+                            <div class="RegPlate">
+                                <span class="RegBand">
+                                    &nbsp;
+                                </span>
+                                <span class="RegCode">
+                                    @IndexModel.FormatNumberPlate(item.Registration)
+                                </span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="OpenCar NoHighlight" data-toggle="modal" data-id="@item.StocklistImportID" data-target="#CarModal" data-loading-text="@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative) (@Html.DisplayFor(modelItem => item.ManufacturedYear))">
+                            <div class="row spacer">
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-gas-pump"></i> @Html.DisplayFor(modelItem => item.FuelType)
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-cogs"></i> @Html.DisplayFor(modelItem => item.Transmission)
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-tachometer-alt"></i> @Html.DisplayFor(modelItem => item.Mileage)@Html.DisplayFor(modelItem => item.MileageUnit)
+                                    </p>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-car-side"></i> @Html.DisplayFor(modelItem => item.BodyType)
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-plug"></i> @Html.DisplayFor(modelItem => item.EngineSize)@Html.DisplayFor(modelItem => item.EngineSizeUnit)
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-palette"></i> @Html.DisplayFor(modelItem => item.Colour)
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-door-closed"></i> @Html.DisplayFor(modelItem => item.Doors) Doors
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <i class="fas fa-users"></i> @Html.DisplayFor(modelItem => item.PreviousOwners) Previous Owners
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        <p class="DateAdded">
+                            Added on @Html.Raw(item.CreatedDate.ToString("d MMMM yyyy"))
+                        </p>
+                        <p>
+                            <a asp-page="./Edit" asp-route-id="@item.StocklistImportID" class="btn btn-primary">Edit</a>
+                            <a asp-page="./Delete" asp-route-id="@item.StocklistImportID" class="btn btn-danger">Delete</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row spacer">
+        <div class="alert alert-secondary col" role="alert">
+            @{
+                var prevDisabled = !Model.StocklistImport.HasPreviousPage ? "disabled" : "";
+                var nextDisabled = !Model.StocklistImport.HasNextPage ? "disabled" : "";
+                var buttonStyle = "";
+                var suffix = "";
+            }
+
+            @*<a href="/Stock/@Model.CurrentSortID/1?@string.Join("&", Model.Filters.Select(f => f.FilterExp))" class="btn btn-secondary @prevDisabled">
+                First
+            </a>*@
+            @if (prevDisabled != "disabled")
+            {
+                <button class="btn btn-outline-secondary PageNav" aria-label="1">First</button>
+            }
+            @for (var i = Model.StocklistImport.PageIndex - 3; i <= Model.StocklistImport.PageIndex + 3; i++)
+            {
+                //Ensure negative page numbers are not displayed
+                if (i >= 1 && i <= Model.StocklistImport.TotalPages)
+                {
+                    //Highlight current page
+                    if (i == Model.StocklistImport.PageIndex)
+                    {
+                        buttonStyle = "btn-secondary";
+                    }
+                    else
+                    {
+                        buttonStyle = "btn-outline-secondary";
+                    }
+
+                    //If last page then add ... to indicate more pages if there are
+                    if (i == Model.StocklistImport.PageIndex + 3 && Model.StocklistImport.TotalPages > i)
+                    {
+                        suffix = "...";
+                    }
+                    else
+                    {
+                        suffix = "";
+                    }
+
+                    @*<a href="/Stock/@Model.CurrentSortID/@i?@string.Join("&", Model.Filters.Select(f => f.FilterExp))" class="btn @buttonStyle">
+                    @i@suffix
+                </a>*@
+                    <button class="btn @buttonStyle PageNav" aria-label="@i">@i@suffix</button>
+                }
+            }
+            @*<a href="/Stock/@Model.CurrentSortID/@Model.StocklistImport.TotalPages?@string.Join("&", Model.Filters.Select(f => f.FilterExp))" class="btn btn-secondary @nextDisabled">
+            Last
+        </a>*@
+            @if (nextDisabled != "disabled")
+            {
+                <button class="btn btn-outline-secondary PageNav" aria-label="@Model.StocklistImport.TotalPages">Last</button>
+            }
+            @Model.StocklistImport.TotalPages Pages
+        </div>
+    </div>
+</div>

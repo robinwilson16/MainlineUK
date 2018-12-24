@@ -1,0 +1,230 @@
+﻿@page
+@model MainlineUK.Pages.Stock.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>StocklistImport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StocklistImport.StocklistImportID" />
+            <div class="form-group">
+                <label asp-for="StocklistImport.DealerID" class="control-label"></label>
+                <input asp-for="StocklistImport.DealerID" class="form-control" />
+                <span asp-validation-for="StocklistImport.DealerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.StockItemID" class="control-label"></label>
+                <input asp-for="StocklistImport.StockItemID" class="form-control" />
+                <span asp-validation-for="StocklistImport.StockItemID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.CreatedDate" class="control-label"></label>
+                <input asp-for="StocklistImport.CreatedDate" class="form-control" />
+                <span asp-validation-for="StocklistImport.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Category" class="control-label"></label>
+                <input asp-for="StocklistImport.Category" class="form-control" />
+                <span asp-validation-for="StocklistImport.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Registration" class="control-label"></label>
+                <input asp-for="StocklistImport.Registration" class="form-control" />
+                <span asp-validation-for="StocklistImport.Registration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.RegCode" class="control-label"></label>
+                <input asp-for="StocklistImport.RegCode" class="form-control" />
+                <span asp-validation-for="StocklistImport.RegCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Make" class="control-label"></label>
+                <input asp-for="StocklistImport.Make" class="form-control" />
+                <span asp-validation-for="StocklistImport.Make" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Model" class="control-label"></label>
+                <input asp-for="StocklistImport.Model" class="form-control" />
+                <span asp-validation-for="StocklistImport.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Derivative" class="control-label"></label>
+                <input asp-for="StocklistImport.Derivative" class="form-control" />
+                <span asp-validation-for="StocklistImport.Derivative" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.AttentionGrabber" class="control-label"></label>
+                <input asp-for="StocklistImport.AttentionGrabber" class="form-control" />
+                <span asp-validation-for="StocklistImport.AttentionGrabber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.EngineSize" class="control-label"></label>
+                <input asp-for="StocklistImport.EngineSize" class="form-control" />
+                <span asp-validation-for="StocklistImport.EngineSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.EngineSizeUnit" class="control-label"></label>
+                <input asp-for="StocklistImport.EngineSizeUnit" class="form-control" />
+                <span asp-validation-for="StocklistImport.EngineSizeUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.FuelType" class="control-label"></label>
+                <input asp-for="StocklistImport.FuelType" class="form-control" />
+                <span asp-validation-for="StocklistImport.FuelType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.ManufacturedYear" class="control-label"></label>
+                <input asp-for="StocklistImport.ManufacturedYear" class="form-control" />
+                <span asp-validation-for="StocklistImport.ManufacturedYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Mileage" class="control-label"></label>
+                <input asp-for="StocklistImport.Mileage" class="form-control" />
+                <span asp-validation-for="StocklistImport.Mileage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.MileageUnit" class="control-label"></label>
+                <input asp-for="StocklistImport.MileageUnit" class="form-control" />
+                <span asp-validation-for="StocklistImport.MileageUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.BodyType" class="control-label"></label>
+                <input asp-for="StocklistImport.BodyType" class="form-control" />
+                <span asp-validation-for="StocklistImport.BodyType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Colour" class="control-label"></label>
+                <input asp-for="StocklistImport.Colour" class="form-control" />
+                <span asp-validation-for="StocklistImport.Colour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Transmission" class="control-label"></label>
+                <input asp-for="StocklistImport.Transmission" class="form-control" />
+                <span asp-validation-for="StocklistImport.Transmission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Doors" class="control-label"></label>
+                <input asp-for="StocklistImport.Doors" class="form-control" />
+                <span asp-validation-for="StocklistImport.Doors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.PreviousOwners" class="control-label"></label>
+                <input asp-for="StocklistImport.PreviousOwners" class="form-control" />
+                <span asp-validation-for="StocklistImport.PreviousOwners" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Price" class="control-label"></label>
+                <input asp-for="StocklistImport.Price" class="form-control" />
+                <span asp-validation-for="StocklistImport.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.PriceExtra" class="control-label"></label>
+                <input asp-for="StocklistImport.PriceExtra" class="form-control" />
+                <span asp-validation-for="StocklistImport.PriceExtra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.AdvertDescription1" class="control-label"></label>
+                <input asp-for="StocklistImport.AdvertDescription1" class="form-control" />
+                <span asp-validation-for="StocklistImport.AdvertDescription1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.AdvertDescription2" class="control-label"></label>
+                <input asp-for="StocklistImport.AdvertDescription2" class="form-control" />
+                <span asp-validation-for="StocklistImport.AdvertDescription2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.WheelBaseType" class="control-label"></label>
+                <input asp-for="StocklistImport.WheelBaseType" class="form-control" />
+                <span asp-validation-for="StocklistImport.WheelBaseType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.CabType" class="control-label"></label>
+                <input asp-for="StocklistImport.CabType" class="form-control" />
+                <span asp-validation-for="StocklistImport.CabType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.FourWheelDrive" class="control-label"></label>
+                <input asp-for="StocklistImport.FourWheelDrive" class="form-control" />
+                <span asp-validation-for="StocklistImport.FourWheelDrive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.FranchiseApproved" class="control-label"></label>
+                <input asp-for="StocklistImport.FranchiseApproved" class="form-control" />
+                <span asp-validation-for="StocklistImport.FranchiseApproved" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Style" class="control-label"></label>
+                <input asp-for="StocklistImport.Style" class="form-control" />
+                <span asp-validation-for="StocklistImport.Style" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.SubStyle" class="control-label"></label>
+                <input asp-for="StocklistImport.SubStyle" class="form-control" />
+                <span asp-validation-for="StocklistImport.SubStyle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Hours" class="control-label"></label>
+                <input asp-for="StocklistImport.Hours" class="form-control" />
+                <span asp-validation-for="StocklistImport.Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.NumberOfBerths" class="control-label"></label>
+                <input asp-for="StocklistImport.NumberOfBerths" class="form-control" />
+                <span asp-validation-for="StocklistImport.NumberOfBerths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Axle" class="control-label"></label>
+                <input asp-for="StocklistImport.Axle" class="form-control" />
+                <span asp-validation-for="StocklistImport.Axle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.DealerReference" class="control-label"></label>
+                <input asp-for="StocklistImport.DealerReference" class="form-control" />
+                <span asp-validation-for="StocklistImport.DealerReference" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.Images" class="control-label"></label>
+                <input asp-for="StocklistImport.Images" class="form-control" />
+                <span asp-validation-for="StocklistImport.Images" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.VideoURL" class="control-label"></label>
+                <input asp-for="StocklistImport.VideoURL" class="form-control" />
+                <span asp-validation-for="StocklistImport.VideoURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.DateOfRegistration" class="control-label"></label>
+                <input asp-for="StocklistImport.DateOfRegistration" class="form-control" />
+                <span asp-validation-for="StocklistImport.DateOfRegistration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.ServiceHistory" class="control-label"></label>
+                <input asp-for="StocklistImport.ServiceHistory" class="form-control" />
+                <span asp-validation-for="StocklistImport.ServiceHistory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StocklistImport.DateImported" class="control-label"></label>
+                <input asp-for="StocklistImport.DateImported" class="form-control" />
+                <span asp-validation-for="StocklistImport.DateImported" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
