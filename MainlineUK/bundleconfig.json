@@ -10,5 +10,23 @@
     "inputFiles": [
       "wwwroot/js/site.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/stocklist.min.js",
+    "inputFiles": [
+      "wwwroot/js/stocklist.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/stocklistshared.min.js",
+    "inputFiles": [
+      "wwwroot/js/stocklistshared.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/home.min.js",
+    "inputFiles": [
+      "wwwroot/js/home.js"
+    ]
   }
 ]

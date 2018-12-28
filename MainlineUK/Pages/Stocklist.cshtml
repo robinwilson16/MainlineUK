@@ -1,0 +1,59 @@
+﻿@page "{sortOrder?}/{pageIndex?}"
+@model StocklistModel
+@{
+    ViewData["Title"] = "Stocklist";
+}
+
+<partial name="_FiltersPartial" model="Model" />
+
+<div class="container" id="VehicleArea">
+    <div class="col text-center LoadingArea">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+</div>
+
+<input type="hidden" id="CurrentSortID" value="@Model.CurrentSortID" />
+<input type="hidden" id="PageID" value="" />
+
+<!--Loading Area HTML showing loading animation-->
+<div id="LoadingHTML" class="d-none">
+    <div class="col text-center LoadingArea">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+</div>
+
+<div class="modal fade" id="CarModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="CarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="CarModalLabel"><i class="fas fa-car"></i> <span class="title">Car Details</span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container first">
+                    <div id="CarDetails" class="row">
+                        <div class="col text-center LoadingArea">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-sign-out-alt"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/stocklistshared.js" asp-append-version="true"></script>
+        <script src="~/js/stocklist.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/stocklistshared.min.js" asp-append-version="true"></script>
+        <script src="~/js/stocklist.min.js" asp-append-version="true"></script>
+    </environment>
+}

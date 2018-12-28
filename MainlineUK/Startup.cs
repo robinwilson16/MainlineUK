@@ -21,12 +21,14 @@ namespace MainlineUK
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
+        private IHostingEnvironment _env;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,9 +40,11 @@ namespace MainlineUK
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            var webRoot = _env.WebRootPath;
+
             services.AddSingleton<IFileProvider>(
                 new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/stockdata/images")));
+                    Path.Combine(webRoot, "stockdata/images")));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -78,6 +82,17 @@ namespace MainlineUK
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+
+            //Avoid CORS errors with JS files served over CDN
+            app.UseCors(builder => builder.WithOrigins(
+                "http://www.mainlineuk.co.uk",
+                "https://www.mainlineuk.co.uk",
+                "http://mainlineuk.co.uk",
+                "https://mainlineuk.co.uk"
+                )
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

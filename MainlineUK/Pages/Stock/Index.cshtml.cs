@@ -29,6 +29,7 @@ namespace MainlineUK.Pages.Stock
         public string SortPrice { get; set; }
 
         public PaginatedList<StocklistImport> StocklistImport { get;set; }
+        public IList<StocklistImport> StocklistImport2 { get; set; }
         public IList<SelectListItem> Makes { get; set; }
         public IList<SelectListGroup> ModelMakes { get; set; }
         public IList<SelectListItem> Models { get; set; }
@@ -301,6 +302,9 @@ namespace MainlineUK.Pages.Stock
 
             switch (sortOrder)
             {
+                case "Latest":
+                    stocklistImportIQ = stocklistImportIQ.OrderByDescending(s => s.CreatedDate).Take(20);
+                    break;
                 case "Recent":
                     stocklistImportIQ = stocklistImportIQ.OrderByDescending(s => s.CreatedDate);
                     break;
@@ -333,6 +337,126 @@ namespace MainlineUK.Pages.Stock
                 pageIndex ?? 1, 
                 pageSize
                 );
+        }
+
+        public async Task<IActionResult> OnGetJsonAsync(
+            string sortOrder,
+            string currentFilter,
+            string searchString,
+            string make,
+            string model,
+            int? min_price,
+            int? max_price,
+            int? mileage,
+            string transmission,
+            string fuel_type,
+            string body_type,
+            int? pageIndex
+            )
+        {
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            //Add a default sort order
+            if (sortOrder == null)
+            {
+                sortOrder = "Recent";
+            }
+
+            CurrentFilterID = searchString;
+            CurrentSortID = sortOrder;
+
+            IQueryable<StocklistImport> stocklistImportIQ = from s in _context.StocklistImport
+                                                            select s;
+
+            //Process searches
+            if (!String.IsNullOrEmpty(make))
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.Make.Equals(make));
+            }
+
+            if (!String.IsNullOrEmpty(model))
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.Model.Equals(model));
+            }
+
+            if (min_price >= 0)
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.Price >= min_price);
+            }
+
+            if (max_price >= 0)
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.Price <= max_price);
+            }
+
+            if (mileage >= 0)
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.Mileage <= mileage);
+            }
+
+            if (!String.IsNullOrEmpty(transmission))
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.Transmission.Equals(transmission));
+            }
+
+            if (!String.IsNullOrEmpty(fuel_type))
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.FuelType.Equals(fuel_type));
+            }
+
+            if (!String.IsNullOrEmpty(body_type))
+            {
+                stocklistImportIQ = stocklistImportIQ.Where(s => s.BodyType.Equals(body_type));
+            }
+
+            switch (sortOrder)
+            {
+                case "Latest":
+                    stocklistImportIQ = stocklistImportIQ.OrderByDescending(s => s.CreatedDate).Take(20);
+                    break;
+                case "Recent":
+                    stocklistImportIQ = stocklistImportIQ.OrderByDescending(s => s.CreatedDate);
+                    break;
+                case "LowMileage":
+                    stocklistImportIQ = stocklistImportIQ.OrderBy(s => s.Mileage);
+                    break;
+                case "RecentPlates":
+                    stocklistImportIQ = stocklistImportIQ.OrderByDescending(s => s.RegCode);
+                    break;
+                case "LowPrice":
+                    stocklistImportIQ = stocklistImportIQ.OrderBy(s => s.Price);
+                    break;
+                default:
+                    stocklistImportIQ = stocklistImportIQ.OrderByDescending(s => s.CreatedDate);
+                    break;
+            }
+
+            StocklistImport2 = await stocklistImportIQ.AsNoTracking()
+                .Include(s => s.Photo)
+                .ToListAsync();
+
+            //int pageSize = 16;
+            //StocklistImport = await PaginatedList<StocklistImport>.CreateAsync(
+            //    stocklistImportIQ.AsNoTracking()
+            //        .Include(s => s.Photo),
+            //    pageIndex ?? 1,
+            //    pageSize
+            //    );
+
+
+            var collectionWrapper = new
+            {
+                Stock = StocklistImport2
+            };
+
+            return new JsonResult(collectionWrapper);
         }
 
         public static string FormatNumberPlate(string numberPlate)

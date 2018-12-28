@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -110,7 +111,9 @@ namespace MainlineUK.Models
         [StringLength(20)]
         public string DealerReference { get; set; }
 
+        [JsonIgnore]
         public string Images { get; set; }
+
         public string VideoURL { get; set; }
 
         [Display(Name = "DateOfRegistration")]

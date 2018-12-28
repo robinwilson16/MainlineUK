@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
 }
 
 @media(min-width:1400px) {
@@ -23,79 +23,46 @@ body {
     }
 }
 
-.spacer {
+.Spacer {
     margin-top: 20px;
 }
 
-#SiteHeader {
-    display: table;
-    background-color: #333333;
-    color: #ffffff;
-    font-weight: bold;
-    width: 100%;
+.SpacerBottom {
+    margin-bottom: 20px;
 }
 
-@media(max-width:991px) {
-    #SiteHeader .SiteLogo {
-        display: block;
-        background-color: #000000;
-        text-align: center;
-    }
-
-    #SiteHeader .SiteNav {
-        display: block;
-    }
-}
-
-@media(min-width:992px) {
-    #SiteHeader .SiteLogo {
-        display: table-cell;
-        width: 400px;
-    }
-
-    #SiteHeader .SiteNav {
-        display: table-cell;
-        vertical-align: top;
-    }
-}
-
-#TopNavBar {
-    background-color: #333333;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
-}
-
-@media (max-width: 767px) {
-    #TopNavBar .ContactDetails {
-        text-align: center;
-    }
-}
-
-@media (min-width: 768px) {
-    #TopNavBar .Email {
-        text-align: right;
-    }
-}
-
-#TopNavBar .ContactDetails a:link,
-#TopNavBar .ContactDetails a:active,
-#TopNavBar .ContactDetails a:visited {
-    color: #cccccc;
-    text-decoration: none;
-}
-
-#TopNavBar .ContactDetails a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-#TopNavBar #TopHeader {
-    background-color: #333333;
-    color: #ffffff;
+.TopAddress {
+    border: 0px;
+    font-size: 0.9em;
     font-weight: bold;
 }
 
-#TopNavBar #TopNavbarNav {
-    margin-top: 20px;
+.TopTel {
+    border: 0px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.TopAddress a,
+.TopTel a{
+    margin-bottom: 10px;
+}
+
+a:link,
+a:active,
+a:visited {
+    color: #1e90ff;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #000080;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    margin-top: -10px;
+    margin-bottom: -10px;
 }
 
 .LoadingArea {
@@ -104,15 +71,63 @@ body {
     font-size: 3em;
 }
 
+.noUi-horizontal {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.noUi-connect {
+    background-color: #000080 !important;
+}
+
 .Filters {
-    background-color: #333333;
+    background-color: #1e90ff;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     padding-top: 14px;
+    color: #ffffff;
 }
 
 .Filters select {
     font-weight: bold;
+    color: #000080;
+}
+
+.Filters .Buttons {
+    padding-bottom: 14px;
+}
+
+.Filters .Buttons .btn-primary {
+    background-color: #000080;
+}
+
+.Filters .Buttons .btn-primary:hover {
+    background-color: #1e90ff;
+}
+
+.VideoBanner {
+    padding: 0px;
+}
+
+.VideoBanner video {
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #000080;
+    width: 100%;
+}
+
+.HomeMap {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+}
+
+h2 {
+    color: #000080;
+}
+
+h3 {
+    color: #1e90ff;
 }
 
 h2,
@@ -128,151 +143,132 @@ h5 {
     font-weight: 700;
 }
 
-h2.top {
+hr.Divider {
+    border: 2px solid #1e90ff;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.StockListItem > .card {
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+.Vehicle {
+    border: 1px solid #cccccc;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.StockListItem .card-title {
-    text-align: center;
-    height: 40px;
+.Vehicle h2,
+.LatestVehicle h2 {
+    color: #000080;
+    font-weight: bold;
 }
 
-.StockListItem h5 a:link,
-.StockListItem h5 a:active,
-.StockListItem h5 a:visited,
-.StockListItem h6 a:link,
-.StockListItem h6 a:active,
-.StockListItem h6 a:visited {
-    color: #333333;
+.LatestVehicle .Details {
+    margin-top: 6px;
 }
 
-.StockListItem h5 a:hover,
-.StockListItem h6 a:hover {
-    color: #000000;
+.LatestVehicle h2 {
+    font-size: 1.4em;
 }
 
-.StockListItem a.NoHighlight:link,
-.StockListItem a.NoHighlight:active,
-.StockListItem a.NoHighlight:visited {
-    color: #000000;
-    text-decoration: none;
-}
-
-.StockListItem a.NoHighlight:hover {
-    color: #000000;
-    text-decoration: none;
-}
-
-.StockListItem .carouselArea {
-    padding-top: 75%;
-}
-
-.StockListItem .carouselFrame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
-.StockListItem .carousel {
-    max-height: 340px;
-    overflow-y: hidden;
-}
-
-.StockListItem .CarPrice {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background-color: rgba(0,0,0,0.75);
-    z-index: 1000;
-    color: #FFF;
-    font-family: 'Exo 2', sans-serif;
-    font-weight: 600;
-    font-size: 1.5em;
-    padding-left: 6px;
-    padding-right: 6px;
-    border-radius: 5px;
-}
-
-.StockListItem .RegPlate {
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'UKNumberPlate', sans-serif;
+.LatestVehicle h3 {
     font-size: 1.2em;
-    background-color: #ffee02;
-    width: 120px;
-    border-radius: 5px;
-    display: table;
+    margin-top: 4px;
 }
 
-.StockListItem .RegPlate .RegBand {
-    width: 20px;
-    background-color: #19357f;
-    display: table-cell;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+.Vehicle h3,
+.LatestVehicle h3 {
+    color: #1e90ff;
 }
 
-.StockListItem .RegPlate .RegCode {
-    text-align: center;
-    display: table-cell;
+.Vehicle .Price,
+.LatestVehicle .Price {
+    margin-top: 8px;
 }
 
-.StockListItem .DateAdded {
-    text-align: right;
-    color: #cccccc;
-    font-size: 0.8em;
+.Vehicle .Price span,
+.LatestVehicle .Price span{
+    background-color: #1e90ff;
+    color: #ffffff;
+    font-weight: bold;
+    width: 200px;
+    padding: 10px;
+}
+
+.Vehicle .Price span {
+    font-size: 2em;
+}
+
+.Vehicle .MoreDetails a:link,
+.Vehicle .MoreDetails a:active,
+.Vehicle .MoreDetails a:visited,
+.LatestVehicle .MoreDetails a:link,
+.LatestVehicle .MoreDetails a:active,
+.LatestVehicle .MoreDetails a:visited{
+    display: block;
+    background-color: #000080;
+    color: #ffffff;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    letter-spacing: 4px;
+}
+
+.Vehicle .MoreDetails a:hover {
+    display: block;
+    background-color: #1e90ff;
+    color: #ffffff;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
 }
 
 .navbar {
-    background-color: #333333;
+  background-color: #000080 !important;
 }
 .navbar .navbar-brand {
-  color: #cccccc;
+  color: #ffffff !important;
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .navbar .navbar-text {
-  color: #cccccc;
+  color: #ffffff !important;
 }
 .navbar .navbar-text a {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .navbar .navbar-text a:hover,
 .navbar .navbar-text a:focus {
-  color: #ffffff; 
+  color: #ffffff !important; 
 }
 .navbar .navbar-nav .nav-link {
-  color: #cccccc;
-  border-radius: .25rem;
-  margin: 0 0.25em;
+  color: #ffffff !important;
+  border-radius: .25rem !important;
+  margin: 0 0.25em !important;
 }
 .navbar .navbar-nav .nav-link:not(.disabled):hover,
 .navbar .navbar-nav .nav-link:not(.disabled):focus {
-  color: #ffffff;
+  color: #ffffff !important;
+  background-color: #1e90ff !important;
 }
 .navbar .navbar-nav .dropdown-menu {
-  background-color: #333333;
-  border-color: #333333;
+  background-color: #000080 !important;
+  border-color: #1e90ff !important;
 }
 .navbar .navbar-nav .dropdown-menu .dropdown-item {
-  color: #cccccc;
+  color: #ffffff !important;
 }
 .navbar .navbar-nav .dropdown-menu .dropdown-item:hover,
 .navbar .navbar-nav .dropdown-menu .dropdown-item:focus,
 .navbar .navbar-nav .dropdown-menu .dropdown-item.active {
-  color: #ffffff;
-  background-color: #333333;
+  color: #ffffff !important;
+  background-color: #1e90ff !important;
 }
 .navbar .navbar-nav .dropdown-menu .dropdown-divider {
-  border-top-color: #333333;
+  border-top-color: #1e90ff !important;
 }
 .navbar .navbar-nav .nav-item.active .nav-link,
 .navbar .navbar-nav .nav-item.active .nav-link:hover,
@@ -280,94 +276,94 @@ h2.top {
 .navbar .navbar-nav .nav-item.show .nav-link,
 .navbar .navbar-nav .nav-item.show .nav-link:hover,
 .navbar .navbar-nav .nav-item.show .nav-link:focus {
-  color: #ffffff;
-  background-color: #333333;
+  color: #ffffff !important;
+  background-color: #1e90ff !important;
 }
 .navbar .navbar-toggle {
-  border-color: #333333;
+  border-color: #1e90ff !important;
 }
 .navbar .navbar-toggle:hover,
 .navbar .navbar-toggle:focus {
-  background-color: #333333;
+  background-color: #1e90ff !important;
 }
 .navbar .navbar-toggle .navbar-toggler-icon {
-  color: #cccccc;
+  color: #ffffff !important;
 }
 .navbar .navbar-collapse,
 .navbar .navbar-form {
-  border-color: #cccccc;
+  border-color: #ffffff !important;
 }
 .navbar .navbar-link {
-  color: #cccccc;
+  color: #ffffff !important;
 }
 .navbar .navbar-link:hover {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 @media (max-width: 575px) {
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #cccccc;
+    color: #ffffff !important;
   }
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ffffff;
+    color: #ffffff !important;
   }
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ffffff;
-    background-color: #333333;
+    color: #ffffff !important;
+    background-color: #1e90ff !important;
   }
 }
 
 @media (max-width: 767px) {
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #cccccc;
+    color: #ffffff !important;
   }
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ffffff;
+    color: #ffffff !important;
   }
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ffffff;
-    background-color: #333333;
+    color: #ffffff !important;
+    background-color: #1e90ff !important;
   }
 }
 
 @media (max-width: 991px) {
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #cccccc;
+    color: #ffffff !important;
   }
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ffffff;
+    color: #ffffff !important;
   }
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ffffff;
-    background-color: #333333;
+    color: #ffffff !important;
+    background-color: #1e90ff !important;
   }
 }
 
 @media (max-width: 1199px) {
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #cccccc;
+    color: #ffffff !important;
   }
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ffffff;
+    color: #ffffff !important;
   }
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ffffff;
-    background-color: #333333;
+    color: #ffffff !important;
+    background-color: #1e90ff !important;
   }
 }
 
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
-  color: #cccccc;
+  color: #ffffff !important;
 }
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
-  color: #ffffff;
-  background-color: #333333;
+  color: #ffffff !important;
+  background-color: #1e90ff !important;
 }

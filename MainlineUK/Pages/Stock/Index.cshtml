@@ -86,7 +86,7 @@
         @foreach (var item in Model.StocklistImport)
         {
             <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 StockListItem">
-                <div class="card spacer">
+                <div class="card Spacer">
                     <div class="CarPrice">
                         @Html.DisplayFor(modelItem => item.Price)
                     </div>
@@ -170,7 +170,7 @@
                         </a>
 
                         <a href="#" class="OpenCar NoHighlight" data-toggle="modal" data-id="@item.StocklistImportID" data-target="#CarModal" data-loading-text="@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Derivative) (@Html.DisplayFor(modelItem => item.ManufacturedYear))">
-                            <div class="row spacer">
+                            <div class="row Spacer">
                                 <div class="col-md-6">
                                     <p>
                                         <i class="fas fa-gas-pump"></i> @Html.DisplayFor(modelItem => item.FuelType)
@@ -226,7 +226,7 @@
             </div>
         }
     </div>
-    <div class="row spacer">
+    <div class="row Spacer">
         <div class="alert alert-secondary col" role="alert">
             @{
                 var prevDisabled = !Model.StocklistImport.HasPreviousPage ? "disabled" : "";

@@ -1,0 +1,47 @@
+﻿<div class="container Spacer Filters">
+    <form method="get" id="SearchForm">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4">
+                <div class="form-group">
+                    <select name="make" class="form-control" asp-items="Model.Makes" id="FilterMake">
+                        <option value="" selected>Make...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="form-group">
+                    <select name="model" class="form-control" asp-items="Model.Models" id="FilterModel">
+                        <option value="" selected>Model...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="form-group">
+                    <label>Price Range: <span id="FilterTextMinPrice"></span> - <span id="FilterTextMaxPrice"></span></label>
+                    <div id="pricesSlider"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="form-group">
+                    <label>Monthly Budget: <span id="FilterTextMinBudget"></span> - <span id="FilterTextMaxBudget"></span></label>
+                    <div id="budgetSlider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row Buttons">
+            <div class="col-md">
+
+            </div>
+            <div class="col-md-3 text-center">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Search</button>
+            </div>
+            <div class="col-md">
+
+            </div>
+        </div>
+        <input type="hidden" name="min_price" id="FilterMinPrice" />
+        <input type="hidden" name="max_price" id="FilterMaxPrice" />
+        <input type="hidden" name="max_budget" id="FilterMinBudget" />
+        <input type="hidden" name="max_budget" id="FilterMaxBudget" />
+    </form>
+</div>
