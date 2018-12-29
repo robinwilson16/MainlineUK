@@ -1,4 +1,19 @@
-﻿function getPrice(price) {
+﻿//If make selected then only show models for this make and clear selection
+$("#FilterMake").change(function (event) {
+    var make = $(this).val();
+
+    var modelDropDown = $("#FilterModel");
+    if (make === "") {
+        $("option, optgroup", modelDropDown).show();
+    }
+    else {
+        modelDropDown.val("");
+        $("optgroup, optgroup > option", modelDropDown).hide();
+        $("optgroup[label='" + make + "'], optgroup[label='" + make + "'] > option", modelDropDown).show();
+    }
+});
+
+function getPrice(price) {
     let moneyFormat = wNumb({
         decimals: 0,
         thousand: ',',
@@ -22,6 +37,9 @@ function getPreviousOwners(prevOwners) {
     }
     else if (prevOwners > 1) {
         prevOwners += " Previous Owners";
+    }
+    else {
+        prevOwners = "Unknown";
     }
 
     return prevOwners;
@@ -85,7 +103,7 @@ function photosHtml(itemID, vehiclePhotos) {
     let classRef = "";
     let tagName = "";
 
-    for (let photo of vehiclePhotos) {
+    for (var photo of vehiclePhotos) {
         if (photoNum === 0) {
             classRef = "active";
             tagName = "src";
@@ -136,8 +154,28 @@ function photosHtml(itemID, vehiclePhotos) {
 var pricesSliderElem = document.getElementById('pricesSlider');
 var budgetSliderElem = document.getElementById('budgetSlider');
 
+//Get current values for prices and budgets
+var minPrice = $("#FilterMinPrice").val();
+var maxPrice = $("#FilterMaxPrice").val();
+var minBudget = $("#FilterMinBudget").val();
+var maxBudget = $("#FilterMaxBudget").val();
+
+//If no values then set defaults
+if (minPrice < 0) {
+    minPrice = 0;
+}
+if (maxPrice <= 0 || maxPrice < minPrice) {
+    maxPrice = 25000;
+}
+if (minBudget < 0) {
+    minBudget = 0;
+}
+if (maxBudget <= 0 || maxBudget < minBudget) {
+    maxBudget = 2000;
+}
+
 var pricesSlider = noUiSlider.create(pricesSliderElem, {
-    start: [0, 25000],
+    start: [minPrice, maxPrice],
     connect: true,
     tooltips: false,
     step: 1000,
@@ -156,7 +194,7 @@ var pricesSlider = noUiSlider.create(pricesSliderElem, {
 });
 
 var budgetSlider = noUiSlider.create(budgetSliderElem, {
-    start: [0, 2000],
+    start: [minBudget, maxBudget],
     connect: true,
     tooltips: false,
     step: 10,

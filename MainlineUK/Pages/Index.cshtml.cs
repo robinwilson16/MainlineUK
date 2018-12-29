@@ -21,6 +21,10 @@ namespace MainlineUK.Pages
         public IList<SelectListItem> Makes { get; set; }
         public IList<SelectListGroup> ModelMakes { get; set; }
         public IList<SelectListItem> Models { get; set; }
+        public int? MinPrice { get; set; }
+        public int? MaxPrice { get; set; }
+        public int? MinBudget { get; set; }
+        public int? MaxBudget { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -60,6 +64,11 @@ namespace MainlineUK.Pages
                 .OrderBy(s => s.Group.Name)
                     .ThenBy(s => s.Text)
                 .ToList();
+
+            MinPrice = null;
+            MaxPrice = null;
+            MinBudget = null;
+            MaxBudget = null;
         }
     }
 }

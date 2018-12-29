@@ -147,9 +147,26 @@
                     </p>
 
                     <h3>Find Directions</h3>
-                    <p>
-                        <input type="text" placeholder="Enter Postcode" />
-                    </p>
+                    <form method="get" action="https://www.google.com/maps" target="_blank">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-10">
+                                    <input type="text" class="form-control" name="saddr" aria-describedby="directionsHelp" placeholder="Enter Postcode" />
+                                </div>
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-search-location"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <small id="directionsHelp" class="form-text text-muted">Get directions using Google Maps.</small>
+                                </div>
+                            </div>
+                            <input type="hidden" name="daddr" value="NE11 9HU" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

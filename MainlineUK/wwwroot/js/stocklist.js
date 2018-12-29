@@ -166,21 +166,7 @@ budgetSlider.on('change', function (values, handle) {
     filterStocklist();
 });
 
-//If make selected then only show models for this make and clear selection
-$("#FilterMake").change(function (event) {
-    var make = $(this).val();
-
-    var modelDropDown = $("#FilterModel");
-    if (make === "") {
-        $("option, optgroup", modelDropDown).show();
-    }
-    else {
-        modelDropDown.val("");
-        $("optgroup, optgroup > option", modelDropDown).hide();
-        $("optgroup[label='" + make + "'], optgroup[label='" + make + "'] > option", modelDropDown).show();
-    }
-});
-
+//Removed as switched to sliders instead
 ////If from price selected then only show higher to prices
 //$("#FilterPriceFrom").change(function (event) {
 //    var minPrice = $(this).val();
@@ -211,98 +197,8 @@ $("#FilterMake").change(function (event) {
 
 //Submit search form when a change is made
 $("#SearchForm select").change(function (event) {
-    //Reset page back to 1
-    //$("#PageID").val("1");
-
-    //$("#SearchForm").submit();
     filterStocklist();
 });
-
-//$("#SearchForm").submit(function (event) {
-//    event.preventDefault();
-
-//    var currentSort = $("#CurrentSortID").val();
-
-//    var make = $("#FilterMake").val();
-//    var model = $("#FilterModel").val();
-//    var minPrice = $("#FilterMinPrice").val();
-//    var maxPrice = $("#FilterMaxPrice").val();
-//    var minBudget = $("#FilterMinBudget").val();
-//    var maxBudget = $("#FilterMaxBudget").val();
-//    var searchString = "";
-//    var pageNum = $("#PageID").val();
-
-
-//    //Construct search string based on what was selected
-//    if (make.length > 1) {
-//        searchString = searchString + "&make=" + make;
-//    }
-//    if (model.length > 1) {
-//        //Remove spaces from models as causes issues
-//        model = model.replace(" ", "_");
-//        searchString = searchString + "&model=" + model;
-//    }
-//    if (minPrice.length > 1) {
-//        minPrice = minPrice.replace("£", "");
-//        minPrice = minPrice.replace(",", "");
-//        searchString = searchString + "&min_price=" + minPrice;
-//    }
-//    if (maxPrice.length > 1) {
-//        maxPrice = maxPrice.replace("£", "");
-//        maxPrice = maxPrice.replace(",", "");
-//        searchString = searchString + "&max_price=" + maxPrice;
-//    }
-//    if (minBudget.length > 1) {
-//        minBudget = minBudget.replace("£", "");
-//        minBudget = minBudget.replace(",", "");
-//        searchString = searchString + "&min_budget=" + minBudget;
-//    }
-//    if (maxBudget.length > 1) {
-//        maxBudget = maxBudget.replace("£", "");
-//        maxBudget = maxBudget.replace(",", "");
-//        searchString = searchString + "&max_budget=" + maxBudget;
-//    }
-
-//    //Trim first & from search string if has values and replace with ?
-//    if (searchString.length > 1) {
-//        searchString = searchString.substring(1, searchString.length);
-//        searchString = "?" + searchString;
-//    }
-
-//    $("#VehicleArea").html($("#LoadingHTML").html());
-//    loadList("CarListArea", "Stock", "StockList", currentSort, searchString, pageNum);
-//});
-
-//function loadList(
-//    loadIntoDivID,
-//    relativeURL,
-//    listToRefresh,
-//    currentSort,
-//    currentFilter,
-//    pageNum
-//) {
-//    var dataToLoad;
-
-//    if (currentSort.length > 0 && pageNum.length > 0) {
-//        dataToLoad = "/" + relativeURL + "/Index/" + currentSort + "/" + pageNum + "/" + currentFilter + " #" + listToRefresh;
-//    }
-//    else if (currentSort.length > 0) {
-//        dataToLoad = "/" + relativeURL + "/Index/" + currentSort + "/" + currentFilter + " #" + listToRefresh;
-//    }
-//    else {
-//        dataToLoad = "/" + relativeURL + "/Index/" + currentFilter + " #" + listToRefresh;
-//    }
-
-//    $("#" + loadIntoDivID).load(dataToLoad, function (responseText, textStatus, req) {
-//        if (textStatus === "error") {
-//            doErrorModal("Error Loading " + dataToLoad, "The list at " + dataToLoad + " returned a server error and could not be loaded");
-//        }
-//        else {
-//            console.log(dataToLoad + " Loaded");
-//            listLoadedFunctions();
-//        }
-//    });
-//}
 
 function listLoadedFunctions() {
     $(function () {
@@ -315,11 +211,6 @@ function listLoadedFunctions() {
     });
 
     $(".PageNav").click(function (event) {
-        //var pageNum = $(this).attr("aria-label");
-
-        //$("#PageID").val(pageNum);
-        //$("#SearchForm").submit();
-
         curPage = $(this).attr("aria-label");
         displayStockList();
     });

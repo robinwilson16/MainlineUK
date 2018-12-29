@@ -1,5 +1,5 @@
 ﻿<div class="container Spacer Filters">
-    <form method="get" id="SearchForm">
+    <form method="get" id="SearchForm" action="/Stocklist/">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-4">
                 <div class="form-group">
@@ -33,15 +33,17 @@
 
             </div>
             <div class="col-md-3 text-center">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Search</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    <i class="fas fa-search"></i> Search
+                </button>
             </div>
             <div class="col-md">
 
             </div>
         </div>
-        <input type="hidden" name="min_price" id="FilterMinPrice" />
-        <input type="hidden" name="max_price" id="FilterMaxPrice" />
-        <input type="hidden" name="max_budget" id="FilterMinBudget" />
-        <input type="hidden" name="max_budget" id="FilterMaxBudget" />
+        <input type="hidden" name="min_price" value="@Model.MinPrice" id="FilterMinPrice" />
+        <input type="hidden" name="max_price" value="@Model.MaxPrice" id="FilterMaxPrice" />
+        <input type="hidden" name="max_budget" value="@Model.MinBudget" id="FilterMinBudget" />
+        <input type="hidden" name="max_budget" value="@Model.MaxBudget" id="FilterMaxBudget" />
     </form>
 </div>

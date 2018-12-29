@@ -83,17 +83,6 @@ namespace MainlineUK
                 app.UseHsts();
             }
 
-            //Avoid CORS errors with JS files served over CDN
-            app.UseCors(builder => builder.WithOrigins(
-                "http://www.mainlineuk.co.uk",
-                "https://www.mainlineuk.co.uk",
-                "http://mainlineuk.co.uk",
-                "https://mainlineuk.co.uk"
-                )
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-            );
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

@@ -99,7 +99,7 @@ function showStockList() {
     }
 
     $("#LatestVehicleArea").html(htmlData);
-    //listLoadedFunctions();
+    listLoadedFunctions();
 }
 
 function advanceStockList(direction) {
@@ -133,6 +133,7 @@ function animateStockList() {
     //Every 5 secs
 }
 
+//Used to pause animation if mouse is over navigation controls
 $(".LatestCarControls").mouseenter(function (event) {
     latestCarControlsHover = true;
 });
@@ -141,7 +142,27 @@ $(".LatestCarControls").mouseleave(function (event) {
     latestCarControlsHover = false;
 });
 
+//Used to pause animation if mouse is over latest car area
+$("#LatestVehicleArea").mouseenter(function (event) {
+    latestCarControlsHover = true;
+});
+
+$("#LatestVehicleArea").mouseleave(function (event) {
+    latestCarControlsHover = false;
+});
+
 $(".LatestCarControls").click(function (event) {
     let direction = $(this).attr("aria-label");
     advanceStockList(direction);
 });
+
+function listLoadedFunctions() {
+    $(function () {
+        return $(".carousel.lazy").on("slide.bs.carousel", function (ev) {
+            var lazy;
+            lazy = $(ev.relatedTarget).find("img[data-src]");
+            lazy.attr("src", lazy.data('src'));
+            lazy.removeAttr("data-src");
+        });
+    });
+}
