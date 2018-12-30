@@ -32,6 +32,10 @@ function showStockList() {
     let startItem = curItem;
     let endItem = curItem + numItemsToShow;
 
+    var dateToday = new Date();
+    var date2WeeksAgo = new Date();
+    date2WeeksAgo.setDate(dateToday.getDate() - 28);
+
     for (let i = startItem; i < endItem; i++) {
         let j = i;
 
@@ -45,10 +49,21 @@ function showStockList() {
             j = 0;
         }
 
+        let createdDate = new Date(stock[j].createdDate);
+        let newStockHtml = "";
+
+        if (createdDate >= date2WeeksAgo) {
+            newStockHtml = `<div class="NewStock"><i class="fas fa-star"></i> New</div>`;
+        }
+        else {
+            newStockHtml = ``;
+        }
+
         htmlData += `
             <div class="col-md-4">
                 <div class="card LatestVehicle">
                     <div class="card-img-top">
+                        ${newStockHtml}
                         ${photosHtml(stock[j].stocklistImportID, stock[j].photo)}
                     </div>
                     <div class="container Details">
@@ -164,5 +179,13 @@ function listLoadedFunctions() {
             lazy.attr("src", lazy.data('src'));
             lazy.removeAttr("data-src");
         });
+    });
+
+    $(".OpenVehicle").click(function (event) {
+        let vehicleID = $(this).attr("data-id");
+        let modalTitle = $(this).attr("data-loading-text");
+
+        $("#vehicleID").val(vehicleID);
+        $("#modalTitleID").val(modalTitle);
     });
 }

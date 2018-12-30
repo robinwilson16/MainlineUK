@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MainlineUK.Data;
 using MainlineUK.Models;
+using Humanizer;
 
 namespace MainlineUK.Pages.Stock
 {
@@ -28,7 +29,9 @@ namespace MainlineUK.Pages.Stock
                 return NotFound();
             }
 
-            StocklistImport = await _context.StocklistImport.FirstOrDefaultAsync(m => m.StocklistImportID == id);
+            StocklistImport = await _context.StocklistImport
+                .Include(m => m.Photo)
+                .FirstOrDefaultAsync(m => m.StocklistImportID == id);
 
             if (StocklistImport == null)
             {

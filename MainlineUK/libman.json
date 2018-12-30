@@ -24,6 +24,10 @@
     {
       "library": "wnumb@1.1.0",
       "destination": "wwwroot/lib/wnumb/"
+    },
+    {
+      "library": "ekko-lightbox@5.3.0",
+      "destination": "wwwroot/lib/ekko-lightbox/"
     }
   ]
 }

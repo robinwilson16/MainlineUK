@@ -149,6 +149,11 @@ hr.Divider {
     margin-bottom: 20px;
 }
 
+.VehicleDetails hr.Divider {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
 .Vehicle {
     border: 1px solid #cccccc;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
@@ -159,13 +164,10 @@ hr.Divider {
 }
 
 .Vehicle h2,
-.LatestVehicle h2 {
+.LatestVehicle h2,
+.VehicleDetails h2 {
     color: #000080;
     font-weight: bold;
-}
-
-.LatestVehicle .Details {
-    margin-top: 6px;
 }
 
 .LatestVehicle h2 {
@@ -182,13 +184,38 @@ hr.Divider {
     color: #1e90ff;
 }
 
+.VehicleDetails h3 {
+    margin-top: 4px;
+}
+
+.Vehicle .NewStock,
+.LatestVehicle .NewStock {
+    position: absolute;
+    color: #ffdf00;
+    font-weight: bold;
+    z-index: 1000;
+    background-color: #000080;
+    padding: 4px;
+}
+
+.Vehicle .NewStock {
+    top: 8px;
+    right: 24px;
+}
+
+.LatestVehicle .NewStock {
+    top: 8px;
+    right: 8px;
+}
+
 .Vehicle .Price,
 .LatestVehicle .Price {
     margin-top: 8px;
 }
 
 .Vehicle .Price span,
-.LatestVehicle .Price span{
+.LatestVehicle .Price span,
+.VehicleDetails .Price span {
     background-color: #1e90ff;
     color: #ffffff;
     font-weight: bold;
@@ -196,8 +223,13 @@ hr.Divider {
     padding: 10px;
 }
 
-.Vehicle .Price span {
+.Vehicle .Price span,
+.VehicleDetails .Price span {
     font-size: 2em;
+}
+
+.LatestVehicle .Details {
+    margin-top: 6px;
 }
 
 .Vehicle .MoreDetails a:link,
@@ -222,6 +254,11 @@ hr.Divider {
     font-size: 1.2em;
     font-weight: bold;
     padding: 10px;
+}
+
+.VehicleDetails .PreviewImage {
+    display: block;
+    margin-bottom: 16px;
 }
 
 .navbar {

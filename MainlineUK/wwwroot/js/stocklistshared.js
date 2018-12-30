@@ -118,7 +118,7 @@ function photosHtml(itemID, vehiclePhotos) {
 
         slideshowItems +=
             `<div class="carousel-item ${classRef}">
-                <a class="OpenCar" data-toggle="modal" data-id="${itemID}" data-target="#CarModal" data-loading-text="">
+                <a class="OpenVehicle" data-toggle="modal" data-id="${itemID}" data-target="#vehicleModal" data-loading-text="">
                     <img ${tagName}="/stockdata/images/${itemID}/${photo.photoID}.jpg" alt="Images of" class="card-img-top" />
                 </a>
             </div>`;
@@ -247,3 +247,37 @@ budgetSlider.on('update', function (values, handle) {
         FilterTextMaxBudget.html(value);
     }
 });
+
+//Load data in when model is displayed
+$("#vehicleModal").on("shown.bs.modal", function () {
+    var vehicleID = $("#vehicleID").val();
+    var formTitle = $("#modalTitleID").val();
+
+    $("#vehicleModalLabel").find(".title").html(formTitle);
+
+    loadVehicleDetails(vehicleID);
+});
+
+$("#vehicleModal").on("hidden.bs.modal", function () {
+    var loadingAnim = $("#LoadingAnimation").html();
+
+    //Set back to loading text
+    $("#VehicleDetails").html(LoadingAnimation);
+});
+
+function loadVehicleDetails(
+    vehicleID
+) {
+    var dataToLoad = "/Stock/Details/" + vehicleID;
+
+    var loadFormData = $.get(dataToLoad, function (data) {
+        var formData = $(data).find("#VehicleInformation");
+        $("#VehicleDetails").html(formData);
+
+        console.log(dataToLoad + " Loaded");
+    });
+
+    loadFormData.fail(function () {
+        doErrorModal("Error Loading Form " + formToLoad, "The form at " + dataToLoad + " returned a server error and could not be loaded");
+    });
+}

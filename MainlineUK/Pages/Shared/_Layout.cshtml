@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
         <link rel="stylesheet" href="~/lib/noUiSlider/nouislider.css" />
+        <link rel="stylesheet" href="~/lib/ekko-lightbox/ekko-lightbox.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -25,6 +26,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css"
               crossorigin="anonymous"
               asp-fallback-href="~/lib/noUiSlider/nouislider.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"
+              asp-fallback-href="~/lib/ekko-lightbox/ekko-lightbox.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
@@ -91,22 +95,22 @@
                         <a class="nav-link text-dark" asp-area="" asp-page="/Stocklist">Stocklist</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="~/AboutUs">About Us</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/AboutUs">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="~/Reviews">Reviews</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Reviews">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="~/Finance">Finance</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Finance">Finance</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="~/SellYourCar">Sell Your Car</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/SellYourCar">Sell Your Car</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="~/RequestCar">Request Car</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/RequestCar">Request Car</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="~/FindUs">Find Us</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/FindUs">Find Us</a>
                     </li>
                 </ul>
             </div>
@@ -131,6 +135,7 @@
         <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.js"></script>
         <script src="~/lib/noUiSlider/nouislider.js"></script>
+        <script src="~/lib/ekko-lightbox/ekko-lightbox.js" asp-append-version="true"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -143,6 +148,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"
                 asp-fallback-src="~/lib/noUiSlider/nouislider.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"
+                asp-fallback-src="~/lib/ekko-lightbox/ekko-lightbox.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous">
         </script>

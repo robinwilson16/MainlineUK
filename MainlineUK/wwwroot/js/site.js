@@ -1,4 +1,14 @@
-﻿function doModal(title, text) {
+﻿$(document).on('click', '[data-toggle="lightbox"]', function (event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});
+
+$(document).on('click', '[data-toggle="lightboxOpen"]', function (event) {
+    event.preventDefault();
+    $("#FirstGalleryItem").ekkoLightbox();
+});
+
+function doModal(title, text) {
     console.log(text);
 
     html = '<div id="dynamicModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirm-modal" aria-hidden="true">';

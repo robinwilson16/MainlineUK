@@ -75,72 +75,93 @@ function displayStockList() {
     let endItem = numItemsPerPage * curPage;
     let htmlData = "";
 
+    var dateToday = new Date();
+    var date2WeeksAgo = new Date();
+    date2WeeksAgo.setDate(dateToday.getDate() - 28);
+
     for (let i = startItem; i <= endItem; i++) {
         if (i >= numItems) {
             //exit loop if max items per page reached
             break;
         }
 
+        let createdDate = new Date(stock[i].createdDate);
+        let newStockHtml = "";
+
+        if (createdDate >= date2WeeksAgo) {
+            newStockHtml = `<div class="NewStock"><i class="fas fa-star"></i> New</div>`;
+        }
+        else {
+            newStockHtml = ``;
+        }
+
         htmlData += `
             <div class="row">
-                <div class="col">
-                    <div class="row Vehicle">
-                        <div class="col-md-4">
+                <div class="col Vehicle">
+                    <div class="row">
+                        <div class="col-md-4 align-self-center">
                             <div class="row">
                                 <div class="col">
+                                    ${newStockHtml}
                                     ${photosHtml(stock[i].stocklistImportID, stock[i].photo)}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col text-center MoreDetails">
-                                    <a href="#">More Details &gt;</a>
+                                    <a href="#" data-toggle="modal" data-id="${stock[i].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[i].make} ${stock[i].model} ${stock[i].derivative} (${stock[i].manufacturedYear})">More Details &gt;</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="row">
                                 <div class="col-lg-9">
-                                    <h2>${stock[i].make} ${stock[i].model}</h2>
-                                    <h3>${stock[i].derivative} (${stock[i].manufacturedYear})</h3>
+                                    <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[i].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[i].make} ${stock[i].model} ${stock[i].derivative} (${stock[i].manufacturedYear})"><h2>${stock[i].make} ${stock[i].model}</h2></a>
+                                    <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[i].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[i].make} ${stock[i].model} ${stock[i].derivative} (${stock[i].manufacturedYear})"><h3>${stock[i].derivative} (${stock[i].manufacturedYear})</h3></a>
                                 </div>
                                 <div class="col-lg-3 text-right Price">
                                     <span>${getPrice(stock[i].price)}</span>
                                 </div>
                             </div>
-                            <hr />
+                            <hr class="Divider" />
                             <div class="row">
                                 <div class="col">
                                     ${getAdvert(stock[i].advertDescription1)}
                                 </div>
                             </div>
                             <div class="row Spacer">
-                                <div class="col-md-3 col-sm-4 col-6">
-                                    <i class="fas fa-cogs"></i> ${stock[i].transmission}
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-6">
-                                    <i class="fas fa-tachometer-alt"></i> ${stock[i].mileage}${stock[i].mileageUnit}
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-6">
-                                    <i class="fas fa-palette"></i> ${stock[i].colour}
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-6">
-                                    <i class="fas fa-gas-pump"></i> ${stock[i].fuelType}
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-6">
-                                    <i class="fas fa-tools"></i> ${stock[i].engineSize}${stock[i].engineSizeUnit}
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-6">
-                                    <i class="fas fa-door-closed"></i> ${stock[i].doors}
-                                </div>
-                                <div class="col-md-6 col-sm-8 col-12">
-                                    <i class="fas fa-users"></i> ${getPreviousOwners(stock[i].previousOwners)}
+                                <div class="col-md">
+                                    <div class="alert alert-secondary" role="alert">
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <i class="fas fa-cogs"></i> ${stock[i].transmission}
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <i class="fas fa-tachometer-alt"></i> ${stock[i].mileage}${stock[i].mileageUnit}
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <i class="fas fa-palette"></i> ${stock[i].colour}
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <i class="fas fa-gas-pump"></i> ${stock[i].fuelType}
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <i class="fas fa-tools"></i> ${stock[i].engineSize}${stock[i].engineSizeUnit}
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <i class="fas fa-door-closed"></i> ${stock[i].doors}
+                                            </div>
+                                            <div class="col-md-6 col-sm-8 col-12">
+                                                <i class="fas fa-users"></i> ${getPreviousOwners(stock[i].previousOwners)}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row Spacer">
-                                <div class="col text-right">
-                                    <button type="button" class="btn btn-primary">Apply</button>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Finance info here
                         </div>
                     </div>
                 </div>
@@ -215,4 +236,11 @@ function listLoadedFunctions() {
         displayStockList();
     });
 
+    $(".OpenVehicle").click(function (event) {
+        let vehicleID = $(this).attr("data-id");
+        let modalTitle = $(this).attr("data-loading-text");
+
+        $("#vehicleID").val(vehicleID);
+        $("#modalTitleID").val(modalTitle);
+    });
 }
