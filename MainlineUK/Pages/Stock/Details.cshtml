@@ -105,7 +105,7 @@
                     galleryItemID = "";
                 }
 
-                <a id="@galleryItemID" href="~/stockdata/images/@Html.DisplayFor(model => model.StocklistImport.StocklistImportID)/@(photo.PhotoID + ".jpg")" data-toggle="lightbox" data-gallery="VehicleGallery" class="col-xl-2 col-lg-2 col-md-3" data-title="@Html.DisplayFor(model => model.StocklistImport.Make) @Html.DisplayFor(model => model.StocklistImport.Model) @Html.DisplayFor(model => model.StocklistImport.Derivative) (@Html.DisplayFor(model => model.StocklistImport.ManufacturedYear))" data-footer="Mainline UK">
+                <a id="@galleryItemID" href="~/stockdata/images/@Html.DisplayFor(model => model.StocklistImport.StocklistImportID)/@(photo.PhotoID + ".jpg")" data-toggle="lightbox" data-gallery="VehicleGallery" class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6" data-title="@Html.DisplayFor(model => model.StocklistImport.Make) @Html.DisplayFor(model => model.StocklistImport.Model) @Html.DisplayFor(model => model.StocklistImport.Derivative) (@Html.DisplayFor(model => model.StocklistImport.ManufacturedYear))" data-footer="Mainline UK">
                     <img src="~/stockdata/images/@Html.DisplayFor(model => model.StocklistImport.StocklistImportID)/@(photo.PhotoID + ".jpg")"
                          alt="Image of @Html.DisplayFor(model => model.StocklistImport.Make) @Html.DisplayFor(model => model.StocklistImport.Model) @Html.DisplayFor(model => model.StocklistImport.Derivative) (@Html.DisplayFor(model => model.StocklistImport.ManufacturedYear))"
                          class="img-fluid img-thumbnail" />

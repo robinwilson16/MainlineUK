@@ -262,7 +262,7 @@ $("#vehicleModal").on("hidden.bs.modal", function () {
     var loadingAnim = $("#LoadingAnimation").html();
 
     //Set back to loading text
-    $("#VehicleDetails").html(LoadingAnimation);
+    $("#VehicleDetails").html(loadingAnim);
 });
 
 function loadVehicleDetails(

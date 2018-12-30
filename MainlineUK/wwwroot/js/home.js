@@ -69,7 +69,7 @@ function showStockList() {
                     <div class="container Details">
                         <div class="row">
                             <div class="col-xl-8 col-6">
-                                <h2>${stock[j].make} ${stock[j].model}</h2>
+                                <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})"><h2>${stock[j].make} ${stock[j].model}</h2></a>
                             </div>
                             <div class="col-xl-4 col-6 text-right Price">
                                 <span>${getPrice(stock[j].price)}</span>
@@ -77,7 +77,7 @@ function showStockList() {
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h3>${stock[j].derivative} (${stock[j].manufacturedYear})</h3>
+                                <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})"><h3>${stock[j].derivative} (${stock[j].manufacturedYear})</h3></a>
                             </div>
                         </div>
                         <div class="row">
@@ -106,7 +106,7 @@ function showStockList() {
                     </div>
                     <div class="row">
                         <div class="col text-center MoreDetails">
-                            <a href="#">Finance from xxx p/m</a>
+                            <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})">Finance from xxx p/m &gt;</a>
                         </div>
                     </div>
                 </div>
