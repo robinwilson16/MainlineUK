@@ -1,8 +1,100 @@
 ﻿@page
 @model MainlineUK.Pages.RequestCarModel
 @{
-    ViewData["Title"] = "RequestCar";
+    ViewData["Title"] = "Request Car";
 }
 
-<h1>RequestCar</h1>
+<div class="container">
+    <div class="row Spacer">
+        <div class="col-md">
+            <h2>Please provide your details below and someone will be in touch</h2>
+            <p>
+                We have access to over 100 cars immediately available on our forecourt and can also source other cars to suit your requirements. 
+                Please complete the form below and we will do our best to find your ideal car.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md">
+            <h3>Personal Details</h3>
+            <hr class="Divider" />
 
+            <div class="form-group row">
+                <label for="CustomerName" class="col-md-2 col-sm-4 col-form-label">Name*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CustomerName" class="form-control" placeholder="Name*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Telephone*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CustomerTel" class="form-control" placeholder="Telephone*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Email*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CustomerEmail" class="form-control" placeholder="Email*" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md">
+            <h3>Car You Require</h3>
+            <hr class="Divider" />
+
+            <div class="form-group row">
+                <label for="CustomerName" class="col-md-2 col-sm-4 col-form-label">Make*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarMake" class="form-control" placeholder="Make*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Model*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarModel" class="form-control" placeholder="Model*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Owners*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarNumOwners" class="form-control" placeholder="Owners*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Mileage*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarMileage" class="form-control" placeholder="Mileage*" />
+                </div>
+
+                <label for="CustomerName" class="col-md-2 col-sm-4 col-form-label">Colour*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarColour" class="form-control" placeholder="Colour*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Fuel Type*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarFuelType" class="form-control" placeholder="Fuel Type*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Transmission*</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarTransmission" class="form-control" placeholder="Transmission*" />
+                </div>
+
+                <label for="CustomerName2" class="col-md-2 col-sm-4 col-form-label">Condition/Damage Report</label>
+                <div class="col-md-4 col-sm-8">
+                    <input id="CarCondition" class="form-control" placeholder="Condition/Damage Report" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="Divider" />
+    <div class="row">
+        <div class="col-md d-md-block d-sm-none">
+
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block"><i class="fas fa-car"></i> Submit Details</button>
+        </div>
+        <div class="col-md d-md-block d-sm-none">
+
+        </div>
+    </div>
+</div>

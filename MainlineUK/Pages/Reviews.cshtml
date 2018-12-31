@@ -4,5 +4,47 @@
     ViewData["Title"] = "Reviews";
 }
 
-<h1>Reviews</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <h2>Reviews</h2>
+            <h3>See below what our customers think of the service we provide</h3>
+        </div>
+    </div>
+    <hr class="Divider" />
+    <div class="row">
+        <div class="col-md">
+            <div id="google-reviews">
 
+            </div>
+        </div>
+    </div>
+    <hr class="Divider" />
+    <div class="row Spacer">
+        <div class="col-md d-md-block d-sm-none">
+
+        </div>
+        <div class="col-md-3">
+            <a href="https://search.google.com/local/writereview?placeid=ChIJM-5XQ2R3fkgRHKiISzxVJfY" class="btn btn-primary btn-block" target="_blank"><i class="fas fa-comment"></i> Leave a Review</a>
+        </div>
+        <div class="col-md d-md-block d-sm-none">
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/stevenmonson/googleReviews/master/google-places.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/stevenmonson/googleReviews@6e8f0d794393ec657dab69eb1421f3a60add23ef/google-places.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhP1zPFmpJpDVV4zEm6bbLFNLzpk9BnSI&libraries=places"></script>
+
+<script>
+jQuery(document).ready(function( $ ) {
+   $("#google-reviews").googlePlaces({
+       placeId: 'ChIJM-5XQ2R3fkgRHKiISzxVJfY' //Find placeID: https://developers.google.com/places/place-id
+      , render: ['reviews']
+      , min_rating: 4
+      , max_rows: 6
+   });
+});
+</script>

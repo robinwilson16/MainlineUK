@@ -76,11 +76,9 @@ namespace MainlineUK.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
+        [StringLength(50)]
         [Display(Name = "Price Extra")]
-        [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal? PriceExtra { get; set; }
-
+        public string PriceExtra { get; set; }
 
         public string AdvertDescription1 { get; set; }
         public string AdvertDescription2 { get; set; }
@@ -119,7 +117,7 @@ namespace MainlineUK.Models
         [Display(Name = "DateOfRegistration")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateOfRegistration { get; set; }
+        public DateTime? DateOfRegistration { get; set; }
 
         [StringLength(100)]
         public string ServiceHistory { get; set; }

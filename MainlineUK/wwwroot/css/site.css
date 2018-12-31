@@ -48,14 +48,14 @@ body {
     margin-bottom: 10px;
 }
 
-a:link,
-a:active,
-a:visited {
+.header-content a:link,
+.header-content a:active,
+.header-content a:visited {
     color: #1e90ff;
     font-weight: bold;
 }
 
-a:hover {
+.header-content a:hover {
     color: #000080;
     font-weight: bold;
 }
@@ -141,6 +141,10 @@ h6 {
 h5 {
     font-family: 'Exo 2', sans-serif;
     font-weight: 700;
+}
+
+.form-control {
+    margin-bottom: 10px;
 }
 
 hr.Divider {

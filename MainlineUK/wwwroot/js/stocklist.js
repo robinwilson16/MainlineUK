@@ -86,6 +86,11 @@ function displayStockList() {
         }
 
         let createdDate = new Date(stock[i].createdDate);
+        let dateOfRegistration = new Date(stock[i].dateOfRegistration);
+
+        let createdDateStr = ("0" + createdDate.getDate()).slice(-2) + "/" + ("0" + createdDate.getMonth()).slice(-2) + "/" + createdDate.getFullYear();
+        let dateOfRegistrationStr = ("0" + dateOfRegistration.getDate()).slice(-2) + "/" + ("0" + dateOfRegistration.getMonth()).slice(-2) + "/" + dateOfRegistration.getFullYear();
+
         let newStockHtml = "";
 
         if (createdDate >= date2WeeksAgo) {
@@ -94,6 +99,22 @@ function displayStockList() {
         else {
             newStockHtml = ``;
         }
+
+        let ivendiUsername = "sales@mainlineuk.com";
+
+        let vehicleClass = "";
+
+        if (stock[i].category === "CARS") {
+            vehicleClass = "car";
+        }
+        else if (stock[i].category === "COMM") {
+            vehicleClass = "lcv";
+        }
+        else {
+            vehicleClass = "car";
+        }
+
+        let vehicleCondition = "used";
 
         htmlData += `
             <div class="row">
@@ -161,7 +182,7 @@ function displayStockList() {
                     </div>
                     <div class="row">
                         <div class="col">
-                            Finance info here
+                            <script src="https://newvehicle.com/widgets/lib/finance-comparator/loader.js?username=${ivendiUsername}&quoteeUid=${stock[i].dealerID}&class=${vehicleClass}&condition=${vehicleCondition}&vrm=${stock[i].registration}&registrationDate=${dateOfRegistrationStr}&capCode=&capId=&cashPrice=${stock[i].price}&vatIncluded=true&vatQualifying=true&currentOdometerReading=${stock[i].mileage}&vehicleImageUrl=https://www.mainlineuk.co.uk/stockdata/images/${stock[i].stocklistImportID}/${stock[i].photo[0].photoID}.jpg}&cashDepositType=&cashDeposit=&term=&annualDistance=&dateOnForecourt=${createdDateStr}&usePersistedOptions=true" async></script>
                         </div>
                     </div>
                 </div>

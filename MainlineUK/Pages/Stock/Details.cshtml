@@ -94,11 +94,13 @@
 
             @{int photoNum2 = 1;}
             @{string galleryItemID = "";}
+            @{string firstImgUrl = "";}
             @foreach (var photo in Model.StocklistImport.Photo)
             {
-                @if(photoNum2 == 1)
+                @if (photoNum2 == 1)
                 {
                     galleryItemID = "FirstGalleryItem";
+                    firstImgUrl = "https://www.mainlineuk.com/stockdata/images/" + Model.StocklistImport.StocklistImportID + "/" + photo.PhotoID + ".jpg";
                 }
                 else
                 {
@@ -119,6 +121,28 @@
         <div class="row">
             <div class="col-md">
                 @Model.StocklistImport.AdvertDescription1.Transform(To.LowerCase).Transform(To.TitleCase)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                @{string ivendiUsername = "sales@mainlineuk.com";}
+                @{string vehicleClass = "";}
+                @{
+                    if (Model.StocklistImport.Category == "CARS")
+                    {
+                        vehicleClass = "car";
+                    }
+                    else if (Model.StocklistImport.Category == "COMM")
+                    {
+                        vehicleClass = "lcv";
+                    }
+                    else
+                    {
+                        vehicleClass = "car";
+                    }
+                }
+                @{string vehicleCondition = "used";}
+                <script src="https://newvehicle.com/widgets/lib/finance-comparator/loader.js?username=@(ivendiUsername)&quoteeUid=@(Model.StocklistImport.DealerID)&class=@(vehicleClass)&condition=@(vehicleCondition)&vrm=@(Model.StocklistImport.Registration)&registrationDate=@(Model.StocklistImport.DateOfRegistration?.ToString("dd/MM/yyyy"))&capCode=&capId=&cashPrice=@(Model.StocklistImport.Price)&vatIncluded=true&vatQualifying=true&currentOdometerReading=@(Model.StocklistImport.Mileage)&vehicleImageUrl=@(firstImgUrl)&cashDepositType=&cashDeposit=&term=&annualDistance=&dateOnForecourt=@(Model.StocklistImport.CreatedDate.ToString("dd/MM/yyyy"))&usePersistedOptions=true" async></script>
             </div>
         </div>
     </div>

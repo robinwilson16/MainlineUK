@@ -1,8 +1,125 @@
 ﻿@page
 @model MainlineUK.Pages.FindUsModel
 @{
-    ViewData["Title"] = "FindUs";
+    ViewData["Title"] = "Find Us";
 }
 
-<h1>FindUs</h1>
+<div class="container">
+    <div class="row Spacer">
+        <div class="col-md">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2290.9646121757805!2d-1.6589204!3d54.9561813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487e77644357ee33%3A0xf625553c4b88a81c!2sMainlineUK!5e0!3m2!1sen!2suk!4v1545966208333" class="HomeMap" allowfullscreen></iframe>
+        </div>
+        <div class="col-md">
+            <h2>Find Us</h2>
+            <h3>95% of our customers drive away happy</h3>
+            <hr class="Divider" />
+            <div class="row">
+                <div class="col-md">
+                    <h3>Address</h3>
+                    <p>
+                        Metrocentre Autoworld<br />
+                        Wellington Road<br />
+                        Dunston<br />
+                        Tyne And Wear<br />
+                        NE11 9HU
+                    </p>
 
+                    <h3>Tel</h3>
+                    <p>
+                        0191 4605070
+                    </p>
+
+                    <h3>Email</h3>
+                    <p>
+                        sales@mainlineuk.com
+                    </p>
+                </div>
+                <div class="col-md">
+                    <h3>Opening Times</h3>
+                    <div class="row">
+                        <div class="col-5">
+                            Monday
+                        </div>
+                        <div class="col-7">
+                            9am–5:30pm
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Tuesday
+                        </div>
+                        <div class="col-7">
+                            9am–5:30pm
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Wednesday
+                        </div>
+                        <div class="col-7">
+                            9am–5:30pm
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Thursday
+                        </div>
+                        <div class="col-7">
+                            9am–5:30pm
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Friday
+                        </div>
+                        <div class="col-7">
+                            9am–5:30pm
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Saturday
+                        </div>
+                        <div class="col-7">
+                            9am–5:30pm
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Sunday
+                        </div>
+                        <div class="col-7">
+                            11am–4pm
+                        </div>
+                    </div>
+
+                    <p class="Spacer">
+                        Viewings available 7 days a week by appointment only.
+                    </p>
+
+                    <h3>Find Directions</h3>
+                    <form method="get" action="https://www.google.com/maps" target="_blank">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-10">
+                                    <input type="text" class="form-control" name="saddr" aria-describedby="directionsHelp" placeholder="Enter Postcode" />
+                                </div>
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-search-location"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <small id="directionsHelp" class="form-text text-muted">Get directions using Google Maps.</small>
+                                </div>
+                            </div>
+                            <input type="hidden" name="daddr" value="NE11 9HU" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
