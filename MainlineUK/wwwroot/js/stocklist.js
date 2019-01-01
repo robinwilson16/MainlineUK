@@ -100,7 +100,8 @@ function displayStockList() {
             newStockHtml = ``;
         }
 
-        let ivendiUsername = "sales@mainlineuk.com";
+        let ivendiUsername = "www.ivendimotors.com";
+        let ivendiQuoteeUID = "268E8202-338E-4B26-A6FE-74BCDAB0A357";
 
         let vehicleClass = "";
 
@@ -178,11 +179,6 @@ function displayStockList() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <script src="https://newvehicle.com/widgets/lib/finance-comparator/loader.js?username=${ivendiUsername}&quoteeUid=${stock[i].dealerID}&class=${vehicleClass}&condition=${vehicleCondition}&vrm=${stock[i].registration}&registrationDate=${dateOfRegistrationStr}&capCode=&capId=&cashPrice=${stock[i].price}&vatIncluded=true&vatQualifying=true&currentOdometerReading=${stock[i].mileage}&vehicleImageUrl=https://www.mainlineuk.co.uk/stockdata/images/${stock[i].stocklistImportID}/${stock[i].photo[0].photoID}.jpg}&cashDepositType=&cashDeposit=&term=&annualDistance=&dateOnForecourt=${createdDateStr}&usePersistedOptions=true" async></script>
                         </div>
                     </div>
                 </div>
