@@ -79,13 +79,13 @@ function filterStocklist() {
         if (minBudget.length > 1) {
             minBudget = minBudget.replace("£", "");
             minBudget = minBudget.replace(",", "");
-            filteredStocklist = filteredStocklist.filter(stock => getMonthlyPaymentNum(stock) >= minBudget);
+            filteredStocklist = filteredStocklist.filter(stock => getMinMonthlyPayment(stock) >= minBudget);
         }
 
         if (maxBudget.length > 1) {
             maxBudget = maxBudget.replace("£", "");
             maxBudget = maxBudget.replace(",", "");
-            filteredStocklist = filteredStocklist.filter(stock => getMonthlyPaymentNum(stock) <= maxBudget);
+            filteredStocklist = filteredStocklist.filter(stock => getMinMonthlyPayment(stock) <= maxBudget);
         }
 
         numItems = filteredStocklist.length;
