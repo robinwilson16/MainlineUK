@@ -42,17 +42,26 @@ function getMonthlyPayment(JSON) {
     return moneyFormat.to(payment);
 }
 
-function getMonthlyPaymentNum(JSON) {
-    let payment = 0;
+function getMinMonthlyPayment(JSON) {
+    let minPayment = null;
 
     try {
-        payment = JSON.FinanceProductResults[0].ProductResults[0].Payment;
+        for (var criteria of JSON.FinanceProductResults) {
+            for (var payment of criteria.ProductResults) {
+                if (minPayment === null) {
+                    minPayment = payment.Payment;
+                }
+                else if (minPayment > payment.Payment) {
+                    minPayment = payment.Payment;
+                }
+            }
+        }
     }
     catch {
-        //payment = 0;
+        minPayment = 0;
     }
 
-    return payment;
+    return minPayment;
 }
 
 function getAdvert(advert) {

@@ -102,7 +102,7 @@ function displayStockList() {
     return new Promise(function (fulfill, reject) {
         let stock = JSON.parse(localStorage.getItem("filteredStocklist"));
         let startItem = numItemsPerPage * curPage - numItemsPerPage;
-        let endItem = numItemsPerPage * curPage;
+        let endItem = numItemsPerPage * curPage - 1;
         let htmlData = "";
 
         var dateToday = new Date();

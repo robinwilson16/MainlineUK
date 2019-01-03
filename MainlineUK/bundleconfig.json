@@ -28,5 +28,11 @@
     "inputFiles": [
       "wwwroot/js/home.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/Test.min.js",
+    "inputFiles": [
+      "wwwroot/js/Test.js"
+    ]
   }
 ]

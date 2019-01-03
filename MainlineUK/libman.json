@@ -12,11 +12,11 @@
       "library": "twitter-bootstrap@4.2.1",
       "destination": "wwwroot/lib/twitter-bootstrap/"
     },
-    {
-      "provider": "unpkg",
-      "library": "@fortawesome/fontawesome-free@5.6.0",
-      "destination": "wwwroot/lib/font-awesome/"
-    },
+    //{
+    //  "provider": "unpkg",
+    //  "library": "@fortawesome/fontawesome-free@5.6.3",
+    //  "destination": "wwwroot/lib/font-awesome/"
+    //},
     {
       "library": "noUiSlider@12.1.0",
       "destination": "wwwroot/lib/noUiSlider/"
