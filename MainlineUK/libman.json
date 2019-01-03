@@ -28,6 +28,14 @@
     {
       "library": "ekko-lightbox@5.3.0",
       "destination": "wwwroot/lib/ekko-lightbox/"
+    },
+    {
+      "library": "iframe-resizer@3.6.3",
+      "destination": "wwwroot/lib/iframe-resizer/"
+    },
+    {
+      "library": "lodash.js@4.17.11",
+      "destination": "wwwroot/lib/lodash.js/"
     }
   ]
 }

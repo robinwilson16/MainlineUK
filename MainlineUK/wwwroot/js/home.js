@@ -1,4 +1,11 @@
-﻿loadStockList();
+﻿//iVendi parameters
+var iVendi = {
+    terms: "48",
+    mileages: "10000",
+    deposits: "500"
+};
+
+loadStockList();
 animateStockList();
 
 var curItem = 0;
@@ -16,7 +23,12 @@ function loadStockList() {
         numItems = data.stock.length;
         localStorage.setItem("stocklist", JSON.stringify(data));
 
-        showStockList();
+        //Get HPI details and update stocklist
+        getVehicleHPIDetails()
+            .then(newResult => showStockList(newResult))
+            .catch(error => showStockList(error)); //If HPI data fails to be loaded then proceed anyway with HPI details unavailable
+
+        //showStockList();
     });
 
     loadFormData.fail(function () {
@@ -25,96 +37,102 @@ function loadStockList() {
 }
 
 function showStockList() {
-    let htmlData = "";
+    return new Promise(function (fulfill, reject) {
+        let htmlData = "";
 
-    let stocklist = JSON.parse(localStorage.getItem("stocklist"));
-    let stock = stocklist.stock;
-    let startItem = curItem;
-    let endItem = curItem + numItemsToShow;
+        let stocklist = JSON.parse(localStorage.getItem("stocklist"));
+        let stock = stocklist.stock;
+        let startItem = curItem;
+        let endItem = curItem + numItemsToShow;
 
-    var dateToday = new Date();
-    var date2WeeksAgo = new Date();
-    date2WeeksAgo.setDate(dateToday.getDate() - 28);
+        var dateToday = new Date();
+        var date2WeeksAgo = new Date();
+        date2WeeksAgo.setDate(dateToday.getDate() - 28);
 
-    for (let i = startItem; i < endItem; i++) {
-        let j = i;
+        for (let i = startItem; i < endItem; i++) {
+            let j = i;
 
-        //Ensure list resets to begining of list if has reached the end
-        if (j > numItems - 1) {
-            j = i - numItems;
-        }
+            //Ensure list resets to begining of list if has reached the end
+            if (j > numItems - 1) {
+                j = i - numItems;
+            }
 
-        //Ensure list loops back to end and does not go negative
-        if (j < 0) {
-            j = 0;
-        }
+            //Ensure list loops back to end and does not go negative
+            if (j < 0) {
+                j = 0;
+            }
 
-        let createdDate = new Date(stock[j].createdDate);
-        let newStockHtml = "";
+            let createdDate = new Date(stock[j].createdDate);
+            let newStockHtml = "";
 
-        if (createdDate >= date2WeeksAgo) {
-            newStockHtml = `<div class="NewStock"><i class="fas fa-star"></i> New</div>`;
-        }
-        else {
-            newStockHtml = ``;
-        }
+            if (createdDate >= date2WeeksAgo) {
+                newStockHtml = `<div class="NewStock"><i class="fas fa-star"></i> New</div>`;
+            }
+            else {
+                newStockHtml = ``;
+            }
 
-        htmlData += `
-            <div class="col-md-4">
-                <div class="card LatestVehicle">
-                    <div class="card-img-top">
-                        ${newStockHtml}
-                        ${photosHtml(stock[j].stocklistImportID, stock[j].photo)}
-                    </div>
-                    <div class="container Details">
-                        <div class="row">
-                            <div class="col-xl-8 col-6">
-                                <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})"><h2>${stock[j].make} ${stock[j].model}</h2></a>
+            htmlData += `
+                <div class="col-md-4">
+                    <div class="card LatestVehicle">
+                        <div class="card-img-top">
+                            ${newStockHtml}
+                            ${photosHtml(stock[j].stocklistImportID, stock[j].photo)}
+                        </div>
+                        <div class="container Details">
+                            <div class="row">
+                                <div class="col-xl-8 col-6">
+                                    <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})"><h2>${stock[j].make} ${stock[j].model}</h2></a>
+                                </div>
+                                <div class="col-xl-4 col-6 text-right Price">
+                                    <span>${getPrice(stock[j].price)}</span>
+                                </div>
                             </div>
-                            <div class="col-xl-4 col-6 text-right Price">
-                                <span>${getPrice(stock[j].price)}</span>
+                            <div class="row">
+                                <div class="col">
+                                    <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})"><h3>${stock[j].derivative} (${stock[j].manufacturedYear})</h3></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <i class="fas fa-cogs"></i> ${stock[j].transmission}
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-tachometer-alt"></i> ${stock[j].mileage}${stock[j].mileageUnit}
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-palette"></i> ${stock[j].colour}
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-gas-pump"></i> ${stock[j].fuelType}
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-tools"></i> ${stock[j].engineSize}${stock[j].engineSizeUnit}
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-door-closed"></i> ${stock[j].doors}
+                                </div>
+                                <div class="col-12">
+                                    <i class="fas fa-users"></i> ${getPreviousOwners(stock[j].previousOwners)}
+                                </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})"><h3>${stock[j].derivative} (${stock[j].manufacturedYear})</h3></a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <i class="fas fa-cogs"></i> ${stock[j].transmission}
-                            </div>
-                            <div class="col-6">
-                                <i class="fas fa-tachometer-alt"></i> ${stock[j].mileage}${stock[j].mileageUnit}
-                            </div>
-                            <div class="col-6">
-                                <i class="fas fa-palette"></i> ${stock[j].colour}
-                            </div>
-                            <div class="col-6">
-                                <i class="fas fa-gas-pump"></i> ${stock[j].fuelType}
-                            </div>
-                            <div class="col-6">
-                                <i class="fas fa-tools"></i> ${stock[j].engineSize}${stock[j].engineSizeUnit}
-                            </div>
-                            <div class="col-6">
-                                <i class="fas fa-door-closed"></i> ${stock[j].doors}
-                            </div>
-                            <div class="col-12">
-                                <i class="fas fa-users"></i> ${getPreviousOwners(stock[j].previousOwners)}
+                            <div class="col text-center MoreDetails">
+                                <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})">
+                                    ${financeFromHtml(stock[i].stocklistImportID, stock[i].FinanceProductResults)}
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col text-center MoreDetails">
-                            <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})">Finance from xxx p/m &gt;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-    }
+                </div>`;
+        }
 
-    $("#LatestVehicleArea").html(htmlData);
-    listLoadedFunctions();
+        $("#LatestVehicleArea").html(htmlData);
+        listLoadedFunctions();
+
+        fulfill("Latest stock loaded");
+    });
 }
 
 function advanceStockList(direction) {

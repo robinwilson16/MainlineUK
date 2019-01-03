@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,17 @@ namespace MainlineUK.Models
     public class StocklistImport
     {
         public int StocklistImportID { get; set; }
+
+        //Needed for JSON _unionBy as both JSONs must have the same key field
+        [JsonProperty(NamingStrategyType = typeof(DefaultNamingStrategy))]
+        public string Id
+        {
+            get
+            {
+                return StocklistImportID.ToString();
+            }
+        }
+
         public int DealerID { get; set; }
 
         [StringLength(100)]

@@ -23,6 +23,38 @@ function getPrice(price) {
     return moneyFormat.to(price);
 }
 
+function getMonthlyPayment(JSON) {
+    let payment = 0;
+
+    try {
+        payment = JSON.Payment;
+    }
+    catch {
+        //payment = 0;
+    }
+
+    let moneyFormat = wNumb({
+        decimals: 2,
+        thousand: ',',
+        prefix: '£'
+    });
+
+    return moneyFormat.to(payment);
+}
+
+function getMonthlyPaymentNum(JSON) {
+    let payment = 0;
+
+    try {
+        payment = JSON.FinanceProductResults[0].ProductResults[0].Payment;
+    }
+    catch {
+        //payment = 0;
+    }
+
+    return payment;
+}
+
 function getAdvert(advert) {
     if (advert.length > 200) {
         advert = advert.substring(0, 197) + "...";
@@ -147,6 +179,76 @@ function photosHtml(itemID, vehiclePhotos) {
                 </div>
             </div>
         </div>`;
+
+    return htmlData;
+}
+
+function monthlyPaymentsHtml(itemID, vehicleHPI) {
+    let htmlData = "";
+    let htmlItems = "";
+
+    for (var criteria of vehicleHPI) {
+        for (var payment of criteria.ProductResults) {
+
+            htmlItems +=
+                `<tr>
+                    <td>&pound;${payment.Payment}</th>
+                    <td>${criteria.Term} months</td>
+                    <td>&pound;${criteria.Deposits}</td>
+                    <td>${criteria.AnnualMileage} miles</td>
+                </tr>`;
+        }
+    }
+
+    if (htmlItems !== "") {
+        htmlData +=
+            `<table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Monthly Payment</th>
+                        <th scope="col">Term</th>
+                        <th scope="col">Deposit</th>
+                        <th scope="col">Annual Mileage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${htmlItems}
+                </tbody>
+            </table>`;
+    }
+    else {
+        htmlData +=
+            `<div class="alert alert-secondary text-center" role="alert">
+                No financial products available for this vehicle
+            </div>`;
+    }
+
+    return htmlData;
+}
+
+function financeFromHtml(itemID, vehicleHPI) {
+    let htmlData = "";
+    let minPayment = null;
+
+    for (var criteria of vehicleHPI) {
+        for (var payment of criteria.ProductResults) {
+            if (minPayment === null) {
+                minPayment = payment.Payment;
+            }
+            else if (minPayment > payment.Payment) {
+                minPayment = payment.Payment;
+            }
+        }
+    }
+
+    if (minPayment !== null) {
+        htmlData +=
+            `Finance from ${getPrice(payment.Payment)} p/m <i class="fas fa-arrow-circle-right"></i>`;
+    }
+    else {
+        htmlData +=
+            `More details <i class="fas fa-arrow-circle-right"></i>`;
+    }
 
     return htmlData;
 }
@@ -279,5 +381,105 @@ function loadVehicleDetails(
 
     loadFormData.fail(function () {
         doErrorModal("Error Loading Form " + formToLoad, "The form at " + dataToLoad + " returned a server error and could not be loaded");
+    });
+}
+
+//iVendi
+function getVehicleHPIDetails() {
+    return new Promise(function (fulfill, reject) {
+        //Get stocklist
+        let stocklist = JSON.parse(localStorage.getItem("stocklist"));
+        let fulfillvar = null;
+        let rejectvar = null;
+
+        //Get Json for vehicles to submit to iVendi
+        let vehicleJson = "";
+        for (let vehicle of stocklist.stock) {
+            let vehicleClass = "Car";
+
+            if (vehicle.category === "COMM") {
+                vehicleClass = "LCV";
+            }
+
+            let dateOfRegistration = new Date(vehicle.dateOfRegistration);
+            let dateOfRegistrationStr = ("0" + dateOfRegistration.getDate()).slice(-2) + "-" + ("0" + dateOfRegistration.getMonth()).slice(-2) + "-" + dateOfRegistration.getFullYear();
+
+            if (vehicleJson !== "") {
+                vehicleJson += `,`;
+            }
+
+            vehicleJson +=
+                `{
+                        "Id": ${vehicle.stocklistImportID},
+                        "Dealer": "268E8202-338E-4B26-A6FE-74BCDAB0A357",
+                        "Vehicle": {
+                            "CashPrice": ${vehicle.price},
+                            "IsNew": false,
+                            "Identifier": "",
+                            "IdentifierType": "RVC",
+                            "Type": "${vehicleClass}",
+                            "StockId": null,
+                            "RegistrationNumber": "${vehicle.registration}",
+                            "CurrentMileage": ${vehicle.mileage},
+                            "RegistrationDate": "${dateOfRegistrationStr}",
+                            "ProductUid": null
+                        }
+                    }`;
+        }
+
+        const PaymentSearchEndpoint = "https://quoteware3.ivendi.com/paymentsearch/";
+
+        let PaymentSearchObject = `{
+                "Debug": false,
+                "Credentials": {
+                    "Username": "www.ivendimotors.com",
+                    "Mode": 0
+                },
+                "Parameters": {
+                    "Terms": [${iVendi.terms}],
+                    "AnnualMileages": [${iVendi.mileages}],
+                    "Deposits": [${iVendi.deposits}]
+                },
+                "VehicleRequests": [
+                    ${vehicleJson}
+                ]
+            }`;
+
+        var dataToSend = PaymentSearchObject;
+
+        var sentData = $.ajax({
+            type: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            url: PaymentSearchEndpoint,
+            data: dataToSend,
+            success: (data) => {
+                console.log("Vehicle HPI Data Retrieved");
+
+                var mergedList = _.map(stocklist.stock, function (item) {
+                    return _.extend(item, _.find(data.VehicleResults, { Id: item.Id }));
+                });
+
+                var stockWithHPI = { "stock": mergedList };
+                localStorage.setItem("stocklist", JSON.stringify(stockWithHPI));
+
+                //console.log(stockWithHPI);
+
+                //filterStocklist();
+
+                fulfillvar = true;
+            }
+        });
+
+        sentData.done(function () {
+            fulfill("HPI data retrieved");
+        });
+
+        sentData.fail(function () {
+            doErrorModal("Error retrieving HPI data");
+
+            reject(Error("Error retrieving HPI data"));
+        });
     });
 }

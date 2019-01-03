@@ -46,6 +46,9 @@ namespace MainlineUK
                 new PhysicalFileProvider(
                     Path.Combine(webRoot, "stockdata/images")));
 
+            //Enable pages to access current domain
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
