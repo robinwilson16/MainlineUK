@@ -411,29 +411,30 @@ function getVehicleHPIDetails() {
             }
 
             let dateOfRegistration = new Date(vehicle.dateOfRegistration);
-            let dateOfRegistrationStr = ("0" + dateOfRegistration.getDate()).slice(-2) + "-" + ("0" + dateOfRegistration.getMonth()).slice(-2) + "-" + dateOfRegistration.getFullYear();
+            let dateOfRegistrationStr = ("0" + dateOfRegistration.getDate()).slice(-2) + "-" + ("0" + (dateOfRegistration.getMonth() + 1)).slice(-2) + "-" + dateOfRegistration.getFullYear();
 
             if (vehicleJson !== "") {
                 vehicleJson += `,`;
             }
 
             vehicleJson +=
-                `{
-                        "Id": ${vehicle.stocklistImportID},
-                        "Dealer": "268E8202-338E-4B26-A6FE-74BCDAB0A357",
-                        "Vehicle": {
-                            "CashPrice": ${vehicle.price},
-                            "IsNew": false,
-                            "Identifier": "",
-                            "IdentifierType": "RVC",
-                            "Type": "${vehicleClass}",
-                            "StockId": null,
-                            "RegistrationNumber": "${vehicle.registration}",
-                            "CurrentMileage": ${vehicle.mileage},
-                            "RegistrationDate": "${dateOfRegistrationStr}",
-                            "ProductUid": null
-                        }
-                    }`;
+                `
+                {
+                    "Id": ${vehicle.stocklistImportID},
+                    "Dealer": "268E8202-338E-4B26-A6FE-74BCDAB0A357",
+                    "Vehicle": {
+                        "CashPrice": ${vehicle.price},
+                        "IsNew": false,
+                        "Identifier": "",
+                        "IdentifierType": "RVC",
+                        "Type": "${vehicleClass}",
+                        "StockId": null,
+                        "RegistrationNumber": "${vehicle.registration}",
+                        "CurrentMileage": ${vehicle.mileage},
+                        "RegistrationDate": "${dateOfRegistrationStr}",
+                        "ProductUid": null
+                    }
+                }`;
         }
 
         const PaymentSearchEndpoint = "https://quoteware3.ivendi.com/paymentsearch/";
@@ -473,6 +474,7 @@ function getVehicleHPIDetails() {
                 var stockWithHPI = { "stock": mergedList };
                 localStorage.setItem("stocklist", JSON.stringify(stockWithHPI));
 
+                //console.log(dataToSend);
                 //console.log(stockWithHPI);
 
                 //filterStocklist();

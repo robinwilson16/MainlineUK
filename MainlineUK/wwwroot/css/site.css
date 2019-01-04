@@ -154,6 +154,11 @@ hr.Divider {
     margin-bottom: 20px;
 }
 
+#vehicleModal .modal-body {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
 .VehicleDetails hr.Divider {
     margin-top: 4px;
     margin-bottom: 4px;

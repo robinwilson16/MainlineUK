@@ -17,7 +17,7 @@ var numItems = 1;
 
 //New method for loading stock list
 function loadStockList() {
-    //var dataToLoad = "/Stock/?handler=Json&min_price=20000";
+    //var dataToLoad = "/Stock/?handler=Json&min_price=9999&max_price=9999";
     var dataToLoad = "/Stock/?handler=Json";
 
     var loadFormData = $.get(dataToLoad, function (data) {
