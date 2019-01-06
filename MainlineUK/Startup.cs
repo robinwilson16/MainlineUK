@@ -16,6 +16,7 @@ using MainlineUK.Models;
 using System.Globalization;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace MainlineUK
 {
@@ -27,7 +28,7 @@ namespace MainlineUK
             _env = env;
         }
 
-        public IConfiguration Configuration { get; }
+        public static IConfiguration Configuration { get; private set; }
         private IHostingEnvironment _env;
 
         // This method gets called by the runtime. Use this method to add services to the container.

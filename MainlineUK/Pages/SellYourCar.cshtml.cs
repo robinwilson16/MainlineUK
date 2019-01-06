@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Reflection;
 using System.Threading.Tasks;
+using MainlineUK.Models;
+using MainlineUK.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MainlineUK.Pages
 {
@@ -13,21 +19,175 @@ namespace MainlineUK.Pages
     {
         public void OnGet()
         {
-
+            FormSubmitted = false;
+            EmailSent = false;
         }
+
+        [BindProperty]
+        public CarRequestSell CarRequestSell { get; set; }
+
+        public bool FormSubmitted { get; set; }
+        public bool EmailSent { get; set; }
+
+        public IEnumerable<SelectListItem> FuelType = Enum.GetValues(typeof(FuelType))
+            .Cast<FuelType>()
+            .Select(t => new SelectListItem
+            {
+                Value = t.ToString(),
+                Text = Enums.GetDescription(t)
+            });
+
+        public IEnumerable<SelectListItem> Transmission = Enum.GetValues(typeof(Transmission))
+            .Cast<Transmission>()
+            .Select(t => new SelectListItem
+            {
+                Value = t.ToString(),
+                Text = Enums.GetDescription(t)
+            });
 
         public void OnPost()
         {
-            SmtpClient client = new SmtpClient("rwshosting.com");
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("enquiries@mainlineuk.co.uk", "Sonyvaio1");
+            string EmailSubject;
+            string EmailBody;
 
-            MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("enquiries@mainlineuk.co.uk");
-            mailMessage.To.Add("enquiries@mainlineuk.co.uk");
-            mailMessage.Body = "body123";
-            mailMessage.Subject = "subject123";
-            client.Send(mailMessage);
+            EmailSubject = "Sell Your Car on Mainline UK";
+
+            EmailBody =
+                @"
+                <html>
+                <head>
+                <title>" + EmailSubject + @"</title>
+                </head>
+                <body>
+                <table border=""0"" cellspacing=""0"" cellpadding=""6"">
+                <tr>
+                <td colspan=""4"">
+                <img border=""0"" src=""https://www.mainlineuk.co.uk/images/MainlineUKLogo.png"" alt=""Mainline UK"" />
+                </td>
+                </tr>
+
+                <tr>
+                <td colspan=""4"">
+                <h2 style=""color: #000080;"">Sell Your Car</h2>
+                <h3 style=""color: #1e90ff;"">Personal Details</h3>
+                <hr stle=""border: 2px solid #1e90ff;"" />
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                Name
+                </td>
+                <td>
+                " + CarRequestSell.Name + @"
+                </td>
+                <td>
+                Telephone
+                </td>
+                <td>
+                <a href=""tel:" + CarRequestSell.Telephone + @""">" + CarRequestSell.Telephone + @"</a>
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                Email
+                </td>
+                <td colspan=""3"">
+                <a href=""mailto:" + CarRequestSell.Email + @"?subject=Sell Your Car with Mainline UK"">" + CarRequestSell.Email + @"</a>
+                </td>
+                </tr>
+
+                <tr>
+                <td colspan=""4"">
+                <h3 style=""color: #1e90ff;"">Your Car Details</h3>
+                <hr stle=""border: 2px solid #1e90ff;"" />
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                Make
+                </td>
+                <td>
+                " + CarRequestSell.CarMake + @"
+                </td>
+                <td>
+                Model
+                </td>
+                <td>
+                " + CarRequestSell.CarModel + @"
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                Registration
+                </td>
+                <td>
+                " + CarRequestSell.CarRegistration + @"
+                </td>
+                <td>
+                Mileage
+                </td>
+                <td>
+                " + CarRequestSell.CarMileage + @"
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                Colour
+                </td>
+                <td>
+                " + CarRequestSell.CarColour + @"
+                </td>
+                <td>
+                Fuel Type
+                </td>
+                <td>
+                " + CarRequestSell.CarFuelType + @"
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                Transmission
+                </td>
+                <td>
+                " + CarRequestSell.CarTransmission + @"
+                </td>
+                <td colspan=""2"">
+                &nbsp;
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                Condition/Damage Report
+                </td>
+                <td colspan=""3"">
+                " + CarRequestSell.CarCondition + @"
+                </td>
+                </tr>
+                
+                <tr>
+                <td colspan=""4"">
+                <hr stle=""border: 2px solid #1e90ff;"" />
+                <h3 style=""color: #1e90ff;"">Someone will be in touch with you soon</h3>
+                <hr stle=""border: 2px solid #1e90ff;"" />
+                </td>
+                </tr>
+
+                </table>
+                </body>
+                </html>";
+
+            string EmailFrom = "enquiries@mainlineuk.co.uk";
+            string EmailTo = "enquiries@mainlineuk.co.uk";
+
+            FormSubmitted = true;
+            EmailSent = Mailer.SendMail(EmailFrom, EmailTo, null, null, EmailSubject, EmailBody);
         }
     }
 }

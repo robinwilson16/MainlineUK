@@ -32,5 +32,7 @@ namespace MainlineUK.Data
                 .Property(p => p.DateImported)
                 .HasDefaultValueSql("GETDATE()");
         }
+
+        public DbSet<MainlineUK.Models.CarRequestSell> CarRequestSell { get; set; }
     }
 }
