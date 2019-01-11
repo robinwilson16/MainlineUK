@@ -311,7 +311,7 @@ var budgetSlider = noUiSlider.create(budgetSliderElem, {
     step: 10,
     range: {
         'min': 0,
-        'max': 2000
+        'max': 750
     },
     ariaFormat: wNumb({
         decimals: 0

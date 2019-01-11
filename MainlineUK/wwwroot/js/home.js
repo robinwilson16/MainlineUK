@@ -1,8 +1,8 @@
 ﻿//iVendi parameters
 var iVendi = {
-    terms: "48",
+    terms: "60",
     mileages: "10000",
-    deposits: "500"
+    deposits: "0"
 };
 
 loadStockList();

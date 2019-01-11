@@ -1,8 +1,8 @@
 ﻿//iVendi parameters
 var iVendi = {
-    terms: "48",
+    terms: "60",
     mileages: "10000",
-    deposits: "500, 1000"
+    deposits: "0, 500"
 };
 
 //Load in functionality for customer list
@@ -146,6 +146,24 @@ function displayStockList() {
             }
 
             let vehicleCondition = "used";
+
+            if (i === 4) {
+                htmlData += `
+                <div class="row">
+                    <div class="col">
+                        <img src="/images/MotoNovo60Seconds.jpg" class="img-fluid mx-auto d-block" alt="MotoNovo Finance: Finance Decisions in 60 Seconds">
+                    </div>
+                </div>`;
+            }
+
+            if (i === 8) {
+                htmlData += `
+                <div class="row">
+                    <div class="col">
+                        <img src="/images/MotoNovoYesCar.jpg" class="img-fluid mx-auto d-block" alt="MotoNovo Finance: We Like to Say Yes">
+                    </div>
+                </div>`;
+            }
 
             htmlData += `
                 <div class="row">

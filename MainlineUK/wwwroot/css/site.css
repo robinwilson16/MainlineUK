@@ -32,20 +32,34 @@ body {
 }
 
 .TopAddress {
-    border: 0px;
     font-size: 0.9em;
     font-weight: bold;
+    padding-bottom: 8px;
 }
 
 .TopTel {
-    border: 0px;
     font-size: 0.9em;
     font-weight: bold;
+    padding-bottom: 8px;
+    line-height: 1.8em;
 }
 
 .TopAddress a,
 .TopTel a{
     margin-bottom: 10px;
+}
+
+.TopSmall {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+.TopAddressSmall {
+    font-size: 0.9em;
+    font-weight: bold;
+    padding-bottom: 8px;
+    margin-top: -10px;
 }
 
 .header-content a:link,
@@ -152,6 +166,12 @@ hr.Divider {
     border: 2px solid #1e90ff;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+header-content hr.Divider {
+    border: 2px solid #1e90ff;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #vehicleModal .modal-body {

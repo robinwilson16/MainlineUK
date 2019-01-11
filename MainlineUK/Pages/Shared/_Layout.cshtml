@@ -39,7 +39,7 @@
     <div class="container-fluid header-content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 card justify-content-end TopAddress d-none d-lg-flex">
+                <div class="col-lg-4 align-self-end TopAddress d-none d-lg-block">
                     <a href="https://goo.gl/maps/nEr5mdFmuuT2" target="_blank" rel="noopener"><i class="fas fa-map-pin"></i> Metrocentre Autoworld, Wellington Road, Dunston, Tyne And Wear, NE11 9HU</a>
                 </div>
                 <div class="col-lg">
@@ -47,19 +47,22 @@
                         <img src="~/images/MainlineUKLogo.png" class="img-fluid mx-auto d-block" alt="Mainline UK">
                     </a>
                 </div>
-                <div class="col-lg-4 card justify-content-end text-right TopTel d-none d-lg-flex">
+                <div class="col-lg-4 align-self-end text-right TopTel d-none d-lg-block">
                     <a href="tel:0191 4605070"><i class="fas fa-phone"></i> 0191 4605070</a><br />
-                    <a href="mailto:sales@mainlineuk.com?subject=Website%20Enquiry"><i class="far fa-envelope"></i> sales@mainlineuk.com</a>
+                    <a href="mailto:sales@mainlineuk.com?subject=Website%20Enquiry"><i class="fas fa-envelope"></i> sales@mainlineuk.com</a>
                 </div>
             </div>
             <div class="row">
-                <div class="col TopTel d-lg-none">
+                <div class="col-5 TopSmall d-lg-none">
                     <a href="tel:0191 4605070" target="_blank" rel="noopener"><i class="fas fa-phone"></i> 0191 4605070</a><br />
-                    <a href="mailto:sales@mainlineuk.com?subject=Website%20Enquiry"><i class="far fa-envelope"></i> sales@mainlineuk.com</a>
+                </div>
+                <div class="col-7 TopSmall d-lg-none">
+                    <a href="mailto:sales@mainlineuk.com?subject=Website%20Enquiry"><i class="fas fa-envelope"></i> sales@mainlineuk.com</a>
                 </div>
             </div>
+            <hr class="Divider d-lg-none" />
             <div class="row">
-                <div class="col TopAddress d-lg-none">
+                <div class="col TopAddressSmall d-lg-none text-center">
                     <a href="https://goo.gl/maps/nEr5mdFmuuT2" target="_blank" rel="noopener"><i class="fas fa-map-pin"></i> Metrocentre Autoworld, Wellington Road, Dunston, Tyne And Wear, NE11 9HU</a>
                 </div>
             </div>
@@ -69,13 +72,16 @@
     <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/images/MainlineUKNavbarLogo.png" alt="Mainline UK Logo (white)" /></a>
+            <a class="nav-link text-light d-lg-none" href="mailto:sales@mainlineuk.com?subject=Website%20Enquiry" title="Visit our Facebook page" target="_blank" rel="noopener"><i class="fas fa-envelope"></i></a>
+            <a class="nav-link text-light d-lg-none" href="https://www.facebook.com/mainlinecarsales/" title="Visit our Facebook page" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+            <a class="nav-link text-light d-lg-none" href="https://twitter.com/mainlineuksales" title="Visit our Twitter page" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse">
                 @*<partial name="_LoginPartial" />*@
-                <ul class="nav navbar-nav ml-auto w-25 justify-content-end">
+                <ul class="nav navbar-nav ml-auto w-25 justify-content-end d-none d-lg-inline-flex">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="mailto:sales@mainlineuk.com?subject=Website%20Enquiry" title="Visit our Facebook page" target="_blank" rel="noopener"><i class="fas fa-envelope"></i></a>
                     </li>
