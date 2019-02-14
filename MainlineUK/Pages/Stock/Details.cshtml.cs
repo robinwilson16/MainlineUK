@@ -25,7 +25,8 @@ namespace MainlineUK.Pages.Stock
             _context = context;
             IVendiUsername = configuration["iVendi:Username"];
             IVendiQuoteeUID = configuration["iVendi:QuoteeUID"];
-            DomainName = httpContextAccessor.HttpContext.Request.Scheme + "://" + httpContextAccessor.HttpContext.Request.Host.Value;
+            //DomainName = httpContextAccessor.HttpContext.Request.Scheme + "://" + httpContextAccessor.HttpContext.Request.Host.Value;
+            DomainName = "https://" + httpContextAccessor.HttpContext.Request.Host.Value; //Hardcoded as scheme returning incorrect value
         }
 
         public StocklistImport StocklistImport { get; set; }

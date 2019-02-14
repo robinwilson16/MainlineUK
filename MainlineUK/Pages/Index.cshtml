@@ -4,26 +4,55 @@
     ViewData["Title"] = "Index";
 }
 
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1456475744597358&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 <partial name="_FiltersPartial" model="Model" />
 
 <div class="container">
     <div class="row Spacer">
-        <div class="col-md-4">
-            <p>
-                Welcome to Mainline UK based in Gateshead. We are convieniently placed next to the A1 near the Metro Centre.
-            </p>
-            <p>
-                We are a family owned business offering a friendly and personal service with a range of vehicles and financing deals to suit any budget. Check out our 5 star reviews on Autotrader!
-            </p>
-            <p>
-                Follow us on Twitter for the latest news and to hear about our latest vehicles and special offers - twitter.com/MainlineUKSales.
-            </p>
+        <div class="col">
+            <h2>Car Dealership Near Newcastle Upon Tyne Near Metro Centre Retail Park off the A1</h2>
         </div>
-        <div class="col-md-8 VideoBanner">
-            <video autoplay>
-                <source src="~/media/Mainline.mp4" />
-                Your browser does not support the video tag.
-            </video>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 align-self-end">
+            <div class="row">
+                <div class="col">
+                    <p>
+                        We have 35 years experience dealing in quality used cars with a personal & professional service from a family owned and run dealership. We are based beside the Metro Centre just off the A1 in Gateshead, close to Newcastle upon Tyne.
+                    </p>
+                    <p>
+                        We pride ourselves on the great service we provide to all of our customers and 95% of our customers would highly recommend us.
+                    </p>
+                    <p>
+                        Been turned down for finance? We can help with finance options tailored to suit your needs. Browse our stock and see what your monthly payments would be.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col VideoBanner">
+                    <video controls>
+                        <source src="~/media/Mainline.mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center align-self-end">
+            <div class="fb-page" data-href="https://www.facebook.com/mainlinecarsales/" data-tabs="timeline" data-small-header="false"
+                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/mainlinecarsales/" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/mainlinecarsales/" target="_blank" rel="noopener">Mainline Car Sales</a>
+                </blockquote>
+            </div>
         </div>
     </div>
 </div>
@@ -62,7 +91,7 @@
         </div>
         <div class="col-lg">
             <h2>Find Us</h2>
-            <h3><i class="far fa-smile-beam"></i> Our customers have awarded us a 95% satisfaction rate</h3>
+            <h3><i class="far fa-smile-beam"></i> 95% of our customers would highly recommend us</h3>
             <div class="row">
                 <div class="col-md">
                     <h3><i class="fas fa-map-pin"></i> Address</h3>
@@ -189,4 +218,6 @@
         <script src="~/js/home.js" asp-append-version="true"></script>
         <script src="~/js/stocklistshared.js" asp-append-version="true"></script>
     </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

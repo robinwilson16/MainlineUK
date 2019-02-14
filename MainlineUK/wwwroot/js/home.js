@@ -162,7 +162,7 @@ function animateStockList() {
             advanceStockList("F");
         }
         animateStockList();
-    }, 5000);
+    }, 10000);
     //Every 5 secs
 }
 

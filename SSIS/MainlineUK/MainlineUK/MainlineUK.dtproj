@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">RWS-SQL1</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="KoI0JSEsKDw=" SSIS:IV="L5ytKWuM/J+KQbfB2nQUHw==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">JUWThlK9mboVH9tKSMpqFHyOEyz72GGGxtNJEm6nz+8yu3VLv2UtkglT02K/F4uCh14aK4/03vBICPT2uAGW2tx3en6TC9dFBkySniSl3wjNK5bmfddl9PZk7NvV/Eh5n+plidxfQ5YRbU4pMVJl+FKY4zk6x5PVUiYx8a4BTPtHaL2nH6ILooSBXjAZwjtN</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="WRZgPPMhiio=" SSIS:IV="A//GbVo1a/tIcipQq3EVrg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">yINyQKoImak4qwdAYGoB8dDJxqtpNelNd2ESrvsN4e6tMeqGDZXKafCb1xC6FaXa/zirYPWRSZs5Anmz1FJbl7oMY4OaMuC7v7Gh1nuJ7b5HOOY3ho8owRauPZZJu4E69t5SOJ/KCOCKmyUGrh9dzUGkG5XSwnYeAWjea+7zGERZdTK113Y+WPI4ei9DuKdo</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">RefreshAutoTraderStocklist</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">59</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">62</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{12EE0A2F-67C7-4CB1-B93C-FBF08A2E2F1A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{180731A3-4D2F-46CC-9EAC-B3E0AAF3565A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

@@ -151,7 +151,9 @@ function displayStockList() {
                 htmlData += `
                 <div class="row">
                     <div class="col">
-                        <img src="/images/MotoNovo60Seconds.jpg" class="img-fluid mx-auto d-block" alt="MotoNovo Finance: Finance Decisions in 60 Seconds">
+                        <a href="https://www.mainlineuk.co.uk/Finance" target="_blank" rel="noopener">
+                            <img src="/images/MotoNovo60Seconds.jpg" class="img-fluid mx-auto d-block" alt="MotoNovo Finance: Finance Decisions in 60 Seconds">
+                        </a>
                     </div>
                 </div>`;
             }
@@ -160,7 +162,9 @@ function displayStockList() {
                 htmlData += `
                 <div class="row">
                     <div class="col">
-                        <img src="/images/MotoNovoYesCar.jpg" class="img-fluid mx-auto d-block" alt="MotoNovo Finance: We Like to Say Yes">
+                        <a href="https://www.mainlineuk.co.uk/Finance" target="_blank" rel="noopener">
+                            <img src="/images/MotoNovoYesCar.jpg" class="img-fluid mx-auto d-block" alt="MotoNovo Finance: We Like to Say Yes">
+                        </a>
                     </div>
                 </div>`;
             }
@@ -178,7 +182,7 @@ function displayStockList() {
                                 </div>
                                 <div class="row">
                                     <div class="col text-center MoreDetails">
-                                        <a href="#" data-toggle="modal" data-id="${stock[i].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[i].make} ${stock[i].model} ${stock[i].derivative} (${stock[i].manufacturedYear})">
+                                        <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[i].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[i].make} ${stock[i].model} ${stock[i].derivative} (${stock[i].manufacturedYear})">
                                             More Details <i class="fas fa-arrow-circle-right"></i>
                                         </a>
                                     </div>

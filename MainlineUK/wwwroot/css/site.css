@@ -174,8 +174,14 @@ header-content hr.Divider {
     margin-bottom: 0px;
 }
 
+/*Make modal fullscreen*/
+.modal-dialog {
+    width: 98%;
+    max-width: 98%;
+}
+
 #vehicleModal .modal-body {
-    max-height: calc(100vh - 200px);
+    max-height: calc(100vh - 320px);
     overflow-y: auto;
 }
 
@@ -291,6 +297,16 @@ header-content hr.Divider {
     margin-bottom: 16px;
 }
 
+#ContactForm {
+    border: 1px solid #000080;
+    padding-top: 8px;
+    margin-bottom: 8px;
+}
+
+.FinanceSection textarea.form-control {
+    height: 140px;
+}
+
 .iVendiFinanceWidget {
     width: 100%;
     border: 0px;
@@ -300,31 +316,31 @@ header-content hr.Divider {
 
 @media (min-width: 0px) {
     .iVendiFinanceWidget {
-        height: 3600px;
+        height: 2200px;
     }
 }
 
 @media (min-width: 576px) {
     .iVendiFinanceWidget {
-        height: 3600px;
+        height: 2200px;
     }
 }
 
 @media (min-width: 768px) {
     .iVendiFinanceWidget {
-        height: 3000px;
+        height: 2000px;
     }
 }
 
 @media (min-width: 992px) {
     .iVendiFinanceWidget {
-        height: 2600px;
+        height: 1400px;
     }
 }
 
 @media (min-width: 1200px) {
     .iVendiFinanceWidget {
-        height: 2600px;
+        height: 1300px;
     }
 }
 

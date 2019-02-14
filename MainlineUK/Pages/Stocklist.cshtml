@@ -33,4 +33,6 @@
         <script src="~/js/stocklistshared.js" asp-append-version="true"></script>
         <script src="~/js/stocklist.js" asp-append-version="true"></script>
     </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

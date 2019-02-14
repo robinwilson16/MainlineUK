@@ -3,17 +3,82 @@
 @{
     ViewData["Title"] = "Contact";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@Model.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="container" id="ContactForm">
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    @if (@Model.FormSubmitted != true)
+    {
+        <form method="post" id="ContactFormFields">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md">
+                            <input asp-for="Contact.Name" class="form-control" />
+                            <span asp-validation-for="Contact.Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md">
+                            <input asp-for="Contact.Email" class="form-control" />
+                            <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md">
+                            <input asp-for="Contact.Telephone" class="form-control" />
+                            <span asp-validation-for="Contact.Telephone" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <textarea asp-for="Contact.Enquiry" class="form-control"></textarea>
+                            <span asp-validation-for="Contact.Enquiry" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-4 align-self-center">
+                            <button type="submit" class="col-md btn btn-primary btn-block SendEnquiryButton">Send Enquiry</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+    }
+    else
+    {
+        if (@Model.EmailSent == true)
+        {
+            <div class="row Spacer">
+                <div class="col-md text-center">
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Thank you!</h4>
+                        <p>
+                            Thank you for your message.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row Spacer">
+                <div class="col-md text-center">
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Sorry there was a problem...</h4>
+                        <p>
+                            Thank you for your message but unfortunately there was an error and your message could not be sent.
+                        </p>
+                        <p>
+                            Please try to send your message again and if the error persists please <a href="enquiries@mainlineuk.co.uk?subject=Finance Enquiry (Error 01)">click here</a> to send an email using your computer email programme instead or send an email to <a href="enquiries@mainlineuk.co.uk?subject=Finance Page Enquiry (Error 01)">enquiries@mainlineuk.co.uk</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -386,10 +386,59 @@ function loadVehicleDetails(
         $("#VehicleDetails").html(formData);
 
         console.log(dataToLoad + " Loaded");
+
+        //Now load the contact form at the bottom of the popup
+        loadContactForm(vehicleID);
     });
 
     loadFormData.fail(function () {
         doErrorModal("Error Loading Form " + formToLoad, "The form at " + dataToLoad + " returned a server error and could not be loaded");
+    });
+}
+
+function loadContactForm(
+    vehicleID
+) {
+    var dataToLoad = "/Contact/";
+
+    var loadFormData = $.get(dataToLoad, function (data) {
+        var formData = $(data).find("#ContactForm");
+        $("#ContactFormContainer").html(formData);
+
+        console.log(dataToLoad + " Loaded");
+
+        attachContactFormFunctions();
+    });
+
+    loadFormData.fail(function () {
+        doErrorModal("Error Loading Form " + formToLoad, "The form at " + dataToLoad + " returned a server error and could not be loaded");
+    });
+}
+
+function attachContactFormFunctions() {
+    var form = $("#ContactFormFields");
+    form.removeData('validator');
+    form.removeData('unobtrusiveValidation');
+    $.validator.unobtrusive.parse(form);
+
+    form.submit(function (event) {
+        event.preventDefault();
+
+        //If no unobtrusive validation errors
+        if (form.valid()) {
+            $.ajax({
+                type: "POST",
+                url: "/Contact/",
+                data: form.serialize(),
+                success: function (data) {
+                    var formData = $(data).find("#ContactForm");
+                    $("#ContactFormContainer").html(formData);
+                },
+                error: function (error) {
+                    doCrashModal(error);
+                }
+            });
+        }
     });
 }
 
