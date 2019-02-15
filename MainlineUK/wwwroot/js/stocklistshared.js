@@ -399,7 +399,7 @@ function loadVehicleDetails(
 function loadContactForm(
     vehicleID
 ) {
-    var dataToLoad = "/Contact/";
+    var dataToLoad = "/Contact/" + vehicleID;
 
     var loadFormData = $.get(dataToLoad, function (data) {
         var formData = $(data).find("#ContactForm");
@@ -407,7 +407,7 @@ function loadContactForm(
 
         console.log(dataToLoad + " Loaded");
 
-        attachContactFormFunctions();
+        attachContactFormFunctions(vehicleID);
     });
 
     loadFormData.fail(function () {
@@ -415,7 +415,7 @@ function loadContactForm(
     });
 }
 
-function attachContactFormFunctions() {
+function attachContactFormFunctions(vehicleID) {
     var form = $("#ContactFormFields");
     form.removeData('validator');
     form.removeData('unobtrusiveValidation');
@@ -428,7 +428,7 @@ function attachContactFormFunctions() {
         if (form.valid()) {
             $.ajax({
                 type: "POST",
-                url: "/Contact/",
+                url: "/Contact/" + vehicleID,
                 data: form.serialize(),
                 success: function (data) {
                     var formData = $(data).find("#ContactForm");

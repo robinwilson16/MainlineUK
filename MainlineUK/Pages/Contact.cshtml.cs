@@ -11,22 +11,39 @@ namespace MainlineUK.Pages
 {
     public class ContactModel : PageModel
     {
-        public void OnGet()
+        private readonly MainlineUK.Data.ApplicationDbContext _context;
+
+        public ContactModel(MainlineUK.Data.ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public StocklistImport StocklistImport { get; set; }
+
+        public void OnGet(int? id)
         {
             FormSubmitted = false;
             EmailSent = false;
+
+            StocklistImport = _context.StocklistImport
+                .FirstOrDefault(s => s.StocklistImportID == id);
         }
 
         [BindProperty]
-        public Contact Contact { get; set; }
+        public ContactAboutVehicle ContactAboutVehicle { get; set; }
 
         public bool FormSubmitted { get; set; }
         public bool EmailSent { get; set; }
 
-        public void OnPost()
+        public void OnPost(int? id)
         {
+            ContactAboutVehicle.StocklistImportID = id;
+
             if (ModelState.IsValid)
             {
+                StocklistImport = _context.StocklistImport
+                    .FirstOrDefault(s => s.StocklistImportID == id);
+
                 string EmailSubject;
                 string EmailBody;
 
@@ -45,6 +62,15 @@ namespace MainlineUK.Pages
                     <img border=""0"" src=""https://www.mainlineuk.co.uk/images/MainlineUKLogo.png"" alt=""Mainline UK"" />
                     </td>
                     </tr>
+                    
+                    <tr>
+                    <td colspan=""4"">
+                    <h2 style=""color: #000080;""><a href=""https://www.mainlineuk.co.uk/Stock/Details/" + StocklistImport.StocklistImportID + @""" rel=""noopener"">" + StocklistImport.Make + @" " + StocklistImport.Model + @"</a></h2>
+                    <h3 style=""color: #1e90ff;""><a href=""https://www.mainlineuk.co.uk/Stock/Details/" + StocklistImport.StocklistImportID + @""" rel=""noopener"">" + StocklistImport.Derivative + @" (" + StocklistImport.ManufacturedYear + @")</a></h3>
+                    <h3 style=""color: #1e90ff;"">&pound;" + StocklistImport.Price + @"</h3>
+                    <hr stle=""border: 2px solid #1e90ff;"" />
+                    </td>
+                    </tr>
 
                     <tr>
                     <td colspan=""4"">
@@ -58,13 +84,13 @@ namespace MainlineUK.Pages
                     Name
                     </td>
                     <td>
-                    " + Contact.Name + @"
+                    " + ContactAboutVehicle.Name + @"
                     </td>
                     <td>
                     Telephone
                     </td>
                     <td>
-                    <a href=""tel:" + Contact.Telephone + @""">" + Contact.Telephone + @"</a>
+                    <a href=""tel:" + ContactAboutVehicle.Telephone + @""">" + ContactAboutVehicle.Telephone + @"</a>
                     </td>
                     </tr>
 
@@ -73,7 +99,7 @@ namespace MainlineUK.Pages
                     Email
                     </td>
                     <td colspan=""3"">
-                    <a href=""mailto:" + Contact.Email + @"?subject=Website Enquiry"">" + Contact.Email + @"</a>
+                    <a href=""mailto:" + ContactAboutVehicle.Email + @"?subject=Website Enquiry"">" + ContactAboutVehicle.Email + @"</a>
                     </td>
                     </tr>
 
@@ -86,7 +112,7 @@ namespace MainlineUK.Pages
 
                     <tr>
                     <td colspan=""4"">
-                    " + Contact.Enquiry + @"
+                    " + ContactAboutVehicle.Enquiry + @"
                     </td>
                     </tr>
                 

@@ -28,7 +28,7 @@ namespace MainlineUK.Models
         public string Telephone { get; set; }
 
         [Display(Name = "Enquiry*", Prompt = "Your Message...")]
-        [StringLength(20)]
+        [StringLength(200)]
         [Required(ErrorMessage = "Please enter your question about this vehicle")]
         public string Enquiry { get; set; }
     }

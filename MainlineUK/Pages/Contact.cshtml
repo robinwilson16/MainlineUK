@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model ContactModel
 @{
     ViewData["Title"] = "Contact";
@@ -8,42 +8,59 @@
 
     @if (@Model.FormSubmitted != true)
     {
-        <form method="post" id="ContactFormFields">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col-md">
-                            <input asp-for="Contact.Name" class="form-control" />
-                            <span asp-validation-for="Contact.Name" class="text-danger"></span>
+        @if (Model.StocklistImport != null)
+        {
+            <form method="post" id="ContactFormFields">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-md">
+                                <input asp-for="ContactAboutVehicle.Name" class="form-control" />
+                                <span asp-validation-for="ContactAboutVehicle.Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md">
+                                <input asp-for="ContactAboutVehicle.Email" class="form-control" />
+                                <span asp-validation-for="ContactAboutVehicle.Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md">
+                                <input asp-for="ContactAboutVehicle.Telephone" class="form-control" />
+                                <span asp-validation-for="ContactAboutVehicle.Telephone" class="text-danger"></span>
+                            </div>
                         </div>
 
-                        <div class="col-md">
-                            <input asp-for="Contact.Email" class="form-control" />
-                            <span asp-validation-for="Contact.Email" class="text-danger"></span>
-                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <textarea asp-for="ContactAboutVehicle.Enquiry" class="form-control"></textarea>
+                                <span asp-validation-for="ContactAboutVehicle.Enquiry" class="text-danger"></span>
+                            </div>
 
-                        <div class="col-md">
-                            <input asp-for="Contact.Telephone" class="form-control" />
-                            <span asp-validation-for="Contact.Telephone" class="text-danger"></span>
+                            <div class="col-md-4 align-self-center">
+                                <button type="submit" class="col-md btn btn-primary btn-block SendEnquiryButton">Send Enquiry</button>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-8">
-                            <textarea asp-for="Contact.Enquiry" class="form-control"></textarea>
-                            <span asp-validation-for="Contact.Enquiry" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-md-4 align-self-center">
-                            <button type="submit" class="col-md btn btn-primary btn-block SendEnquiryButton">Send Enquiry</button>
-                        </div>
+                </div>
+            </form>
+        }
+        else
+        {
+            <div class="row Spacer">
+                <div class="col-md text-center">
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Vehicle Ref is Missing (Error 02)</h4>
+                        <p>
+                            Sorry but this contact form is not currently working
+                        </p>
+                        <p>
+                            Please <a href="enquiries@mainlineuk.co.uk?subject=Vehicle Enquiry (Error 02)">click here</a> to send an email using your computer email programme instead or send an email to <a href="enquiries@mainlineuk.co.uk?subject=Finance Page Enquiry (Error 01)">enquiries@mainlineuk.co.uk</a>
+                        </p>
                     </div>
-
                 </div>
             </div>
-        </form>
-
+        }
     }
     else
     {
