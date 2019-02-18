@@ -92,7 +92,10 @@ namespace MainlineUK.Models
         [Display(Name = "Price Extra")]
         public string PriceExtra { get; set; }
 
+        /*Depricated field*/
         public string AdvertDescription1 { get; set; }
+
+        /*Depricated field*/
         public string AdvertDescription2 { get; set; }
 
         [StringLength(50)]
@@ -133,6 +136,18 @@ namespace MainlineUK.Models
 
         [StringLength(100)]
         public string ServiceHistory { get; set; }
+
+        public string KeyInformation { get; set; }
+
+        [StringLength(500)]
+        public string OtherVehicleText { get; set; }
+
+        [StringLength(500)]
+        public string Closer { get; set; }
+        public string Feature { get; set; }
+
+        [StringLength(20)]
+        public string VatStatus { get; set; }
 
         [Required]
         public DateTime DateImported { get; set; }

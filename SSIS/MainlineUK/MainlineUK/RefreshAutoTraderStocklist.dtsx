@@ -12,8 +12,8 @@
   DTS:ObjectName="RefreshAutoTraderStocklist"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{180731A3-4D2F-46CC-9EAC-B3E0AAF3565A}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{FE25B731-E145-4382-95C5-FF9E8865DE2E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,12 +31,12 @@
             DTS:UsePassiveMode="True">
             <EncryptedData
               Type="http://www.w3.org/2001/04/xmlenc#Element"
-              Salt="6Ed3GMMXYnY="
-              IV="VVhMukwFPlKzblyo/3RgCg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+              Salt="nTFUMDVyWok="
+              IV="GVLJ90CF1ehsItMDLz8DGA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
               <EncryptionMethod
                 Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
               <CipherData>
-                <CipherValue>VVhMukwFPlKzblyo/3RgCqzpv3We9Qy3m1BDtq3b8cx2wy/kJQNG7dhqrHjT80n4ZIadsH9cKZM4UWJDvpueLzS2aVIOmKWPcM6IlB3+QjfuW060UXHCmGQQipuEd5jvpNG1b+2R8V8U4Sg8TCSmI2Hs6Z/onbCcmFRNipcj6N7UbPfj1RbXLkKdBhz+HoQI</CipherValue>
+                <CipherValue>GVLJ90CF1ehsItMDLz8DGCjxFAXqnPQ3OgKkeKXGTwngpMwYIH0ZS7dFD6+A0drnD5R2Nxi7AOOks+upz6+za71bWhZLYgBZk4IUEzSjfr3FcryIWC5OUsnv/9MyjaoSLwOb8F4E8G7bI/2l7Gna8ULKnIbfM5Beg8BUk3wjfc8OaSe0sWRedk7YWe+yeZvG</CipherValue>
               </CipherData>
             </EncryptedData>
           </DTS:FtpConnection>
@@ -62,10 +62,11 @@
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="20"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="DID"
-              DTS:DTSID="{9D836D91-C721-484F-9B45-C2434D6808AE}"
+              DTS:DTSID="{CE52E14C-D010-4900-A6A6-1DE2E675906D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -74,15 +75,15 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="STOCK_ITEM_ID"
-              DTS:DTSID="{E68CB4FE-CA0D-4A23-A0F8-788FD25757B1}"
+              DTS:DTSID="{2DA8959B-C384-4936-BF8C-99A73298BD99}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="133"
+              DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="CREATED_DATE"
-              DTS:DTSID="{11238283-9A6D-41E2-BF17-0BDE13639B43}"
+              DTS:DTSID="{9D5C6FC1-1DA4-498C-976C-B7373E5A5CDB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -91,7 +92,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CATEGORY"
-              DTS:DTSID="{E2F3B010-8365-4E14-9B19-DA21DC3A2E6E}"
+              DTS:DTSID="{E99E5F06-51A5-4609-A760-610B302A58B4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -100,15 +101,15 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="REGISTRATION"
-              DTS:DTSID="{FD063350-4CDA-41C3-A494-4DF4871E35B4}"
+              DTS:DTSID="{57A6D053-16D9-424D-A710-1B83F72FDB32}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="20"
+              DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="REG_CODE"
-              DTS:DTSID="{7E621944-3F26-40D8-83EA-A590AB8F1DCD}"
+              DTS:DTSID="{61341182-74C9-4562-8AFF-1C548852DF22}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -117,7 +118,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="MAKE"
-              DTS:DTSID="{C3C48C56-B3D4-403C-9661-E86DDBD01511}"
+              DTS:DTSID="{97D86888-BA0A-42C8-B60B-5B5A5F003266}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -126,7 +127,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="MODEL"
-              DTS:DTSID="{05242A31-FD5F-4A9E-A3E7-FE9950E6E49A}"
+              DTS:DTSID="{0D56813A-FB15-41B6-8174-B27FCB059CC6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -135,7 +136,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="DERIVATIVE"
-              DTS:DTSID="{46C8FB2A-540A-46F8-A17C-77495BD50A08}"
+              DTS:DTSID="{4FF11BDA-F0F7-4283-9277-328D8AE62A2D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -144,7 +145,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ATTENTION_GRABBER"
-              DTS:DTSID="{4B642D90-F454-4DDE-926C-92A76598E275}"
+              DTS:DTSID="{4858CB64-1F88-475A-BBC4-44C753E47C40}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -152,7 +153,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="ENGINE_SIZE"
-              DTS:DTSID="{D1265235-2F9F-4CF5-BDBD-6FF7FD3696B2}"
+              DTS:DTSID="{1F64BEA8-DDE0-4D9A-83C8-EF932E1DA51A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -161,7 +162,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ENGINE_SIZE_UNIT"
-              DTS:DTSID="{EEBB490D-B7D5-4D63-AA7E-9D14F5E3AB3E}"
+              DTS:DTSID="{8737587C-12B3-4AAE-BC14-660683146E1A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -170,7 +171,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="FUEL_TYPE"
-              DTS:DTSID="{EB0A5651-534F-4205-BEBA-62B10F087A36}"
+              DTS:DTSID="{C0775A67-FB67-43E9-98CE-3FC4528646D8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -178,7 +179,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="MANUFACTURED_YEAR"
-              DTS:DTSID="{3869DB02-1F27-4C81-85FA-9BA9E6834739}"
+              DTS:DTSID="{CB4BF46D-B16E-4036-BB20-9509E5AD146C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -186,7 +187,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="MILEAGE"
-              DTS:DTSID="{0AC291A2-C1EE-4D4F-B873-C5BA3396947E}"
+              DTS:DTSID="{3323CF74-3E32-449A-8D8F-46D41960AF25}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -195,7 +196,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="MILEAGE_UNIT"
-              DTS:DTSID="{60E981B9-A25F-49AE-BC4E-0CA359A217F5}"
+              DTS:DTSID="{87FE0F4B-35B9-421F-93FE-496D0201E193}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -204,7 +205,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="BODYTYPE"
-              DTS:DTSID="{A5B04B7A-C8A7-434A-ABDD-39DD5745CD23}"
+              DTS:DTSID="{BB27F484-A487-4C72-9096-844C2FF3F60E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -213,7 +214,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="COLOUR"
-              DTS:DTSID="{D3A223A0-D2BE-40F1-8397-9ED911556761}"
+              DTS:DTSID="{427FCFE1-3D4F-47AC-881F-C2E36FAAB176}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -222,7 +223,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="TRANSMISSION"
-              DTS:DTSID="{29FCDAB9-57AC-4F61-BACC-7D210BEE234F}"
+              DTS:DTSID="{51F96347-1DED-454B-8B35-00FE753D51A7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -230,7 +231,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="DOORS"
-              DTS:DTSID="{6DDB223A-9BF2-4CB3-B5C6-43F85C9F009B}"
+              DTS:DTSID="{1FE03495-249B-488C-B2E6-AFAC2DC0A923}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -238,15 +239,15 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="PREVIOUS_OWNERS"
-              DTS:DTSID="{5670BC1E-F07D-4B48-A121-F1E7C3027D14}"
+              DTS:DTSID="{5D4CD43F-C662-43AF-8FE9-AC1533F45153}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="6"
+              DTS:DataType="14"
               DTS:TextQualified="True"
               DTS:ObjectName="PRICE"
-              DTS:DTSID="{455F4CDB-5DA4-448D-A273-BAF45B1BAD0D}"
+              DTS:DTSID="{D984706B-D949-4B2E-B19F-C13122AC7991}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -255,7 +256,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="PRICE_EXTRA"
-              DTS:DTSID="{AC6A972C-4370-4F23-94CA-FF0F4691AFAA}"
+              DTS:DTSID="{E5243D94-D055-42AF-A659-9270E0D963B6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -264,7 +265,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ADVERT_DESCRIPTION_1"
-              DTS:DTSID="{758182A7-12C3-4EA1-B3F6-F267B9C1331E}"
+              DTS:DTSID="{E0D6F10D-4532-401A-81CB-9A496697693D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -273,7 +274,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ADVERT_DESCRIPTION_2"
-              DTS:DTSID="{E46529EA-559A-462F-867D-49BFCB543D96}"
+              DTS:DTSID="{EA0117B1-80DB-4A51-8E3E-E1C2DC87EC15}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -282,7 +283,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="WHEEL_BASE_TYPE"
-              DTS:DTSID="{615DDA64-39A0-45FD-957E-E616E5DAAC93}"
+              DTS:DTSID="{9C330BB2-BD93-4D6B-A387-6FB1E0CE7516}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -291,7 +292,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CAB_TYPE"
-              DTS:DTSID="{342C67C7-7100-40FD-8D5A-CDAA85FD590A}"
+              DTS:DTSID="{D042D68B-7EBF-47C2-A516-46C03CD5FDC0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -300,7 +301,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="FOUR_WHEEL_DRIVE"
-              DTS:DTSID="{3F718948-6DB8-4C45-AAD2-EFC1FD91F9E4}"
+              DTS:DTSID="{42B097C3-DA38-4C0A-A96C-970C28811715}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -309,7 +310,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="FRANCHISE_APPROVED"
-              DTS:DTSID="{8B1DDD32-5133-48C3-9930-26F08A3638E6}"
+              DTS:DTSID="{710638B0-BE23-4DFE-BD05-7B3BDB63BDF9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -318,7 +319,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="STYLE"
-              DTS:DTSID="{4A1EBB8A-6D54-466E-9DC5-70AC3A5C4CBB}"
+              DTS:DTSID="{90CE2D75-4A2C-43BE-BD34-EA394A040CC1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -327,7 +328,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="SUB_STYLE"
-              DTS:DTSID="{B9ABCCD5-C157-49FC-A933-C261A826A343}"
+              DTS:DTSID="{8C70076F-F441-4292-917F-E1BF9E2DC9D0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -335,7 +336,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="HOURS"
-              DTS:DTSID="{64EB7F2D-554D-437F-A8E9-5C8E0E7B31C9}"
+              DTS:DTSID="{8B4D1F2A-7262-41AA-9E92-6D523D828355}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -343,7 +344,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="NUMBER_OF_BERTHS"
-              DTS:DTSID="{6DE607B9-0105-415C-8386-704C6A4EBE43}"
+              DTS:DTSID="{CEC80667-D4BF-4959-88A0-E900DBFD6616}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -352,7 +353,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="AXLE"
-              DTS:DTSID="{E0320358-4EDE-4321-9CC3-83B26FBEEBF3}"
+              DTS:DTSID="{25EBE692-700C-4FB7-8620-BEA8FC98FA30}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -361,7 +362,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="DEALER_REFERENCE"
-              DTS:DTSID="{1EED6E91-6F26-4295-88D6-B163D1F47A11}"
+              DTS:DTSID="{9340C0DB-CD5F-4399-8041-2D3CE2BB2EDA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -370,7 +371,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="IMAGES"
-              DTS:DTSID="{67804F03-6E44-44C9-8FCD-49EE287964A1}"
+              DTS:DTSID="{5EFBB201-46E6-49EA-9BC3-867F4E8C680E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -379,24 +380,69 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="VIDEO_URL"
-              DTS:DTSID="{6242CC99-E507-4ED5-95B3-ED4A9295038A}"
+              DTS:DTSID="{AF94F426-51C9-4257-9477-85E039D89FC1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="133"
+              DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="DATE_OF_REGISTRATION"
-              DTS:DTSID="{C59581DE-1B23-4752-B6CA-FC72DDCDD346}"
+              DTS:DTSID="{B49727E2-145E-4392-A59C-6333C91151C2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000A_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="100"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="SERVICE_HISTORY"
-              DTS:DTSID="{9CB350B2-F395-4B89-A9EC-F0FAC4345294}"
+              DTS:DTSID="{94B811C6-4555-493B-9F6F-25B6CC3028C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="KEY_INFORMATION"
+              DTS:DTSID="{AF9502BB-7996-474E-9E73-DFE532F3D981}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OTHER_VEHICLE_TEXT"
+              DTS:DTSID="{C724B69E-AADB-47B8-94A5-F1028486EDED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CLOSER"
+              DTS:DTSID="{7CCA5CF2-CC09-456C-98AD-ADD9F1136762}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FEATURE"
+              DTS:DTSID="{7EE4101B-1203-4905-9930-3DFC106D52C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VATSTATUS"
+              DTS:DTSID="{8EC9E146-E172-4737-BE17-6111DBAA5078}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -423,12 +469,12 @@
           DTS:ConnectionString="Data Source=rwshosting.com;User ID=MainlineUK;Initial Catalog=MainlineUK;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="18ClS2XwZ0M="
-            IV="YjH9uVgvm1Zbm+hQdbCGjg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="x5ksHy7S60A="
+            IV="fiuJWDkKfpIXkYtoNMyu2Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>YjH9uVgvm1Zbm+hQdbCGjpsuUfEA/10TNiLIVdTZ2SYICt0q61+Uvx2H8Nb77HEL3bxk3bOVlXvRzq0NSWAicCCW3qBdHaG7DSk4ajhFBcmL6UkgOCaLTeEi1vwmhW3IAS2uASJEM3cuKTocNhF0Ux/phMUJwZ6pM+U1Pi4o3tEwOKlpvNkir2AEl4j4vyZa</CipherValue>
+              <CipherValue>fiuJWDkKfpIXkYtoNMyu2UH//f+Y7Dve7wnOxmNFqxWEwXd9mMhdkD8xXxf0qU2ud+9rk967x/PglclDN5ORLIvGm5+jatpHwZX3XCQW560Lpdf901eXYWf5XANC2DOC9nkMEZch34AMOEMheoijVH/HMg7wruAzw+Subot91nV57DXG0biK74kI3MMs3GtZ</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -582,14 +628,35 @@
               VSTAMinorVersion="0"
               Language="CSharp">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_e17fd3d58add49b0be6846b325b58ac5")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_e17fd3d58add49b0be6846b325b58ac5")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -1019,35 +1086,14 @@ namespace ST_e17fd3d58add49b0be6846b325b58ac5.Properties {
     }
 }]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_e17fd3d58add49b0be6846b325b58ac5")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_e17fd3d58add49b0be6846b325b58ac5")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -1397,10 +1443,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[DID]"
-                      dataType="i8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[DID]"
+                      length="50"
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[DID]"
                       name="DID"
                       truncationRowDisposition="FailComponent">
@@ -1438,7 +1485,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[CREATED_DATE]"
-                      dataType="dbDate"
+                      dataType="date"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[CREATED_DATE]"
@@ -1500,7 +1547,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[REG_CODE]"
-                      dataType="i8"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[REG_CODE]"
@@ -1830,7 +1877,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[PRICE]"
-                      dataType="cy"
+                      dataType="decimal"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[PRICE]"
@@ -2163,7 +2210,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[DATE_OF_REGISTRATION]"
-                      dataType="dbDate"
+                      dataType="date"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[DATE_OF_REGISTRATION]"
@@ -2202,12 +2249,118 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                           name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[KEY_INFORMATION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[KEY_INFORMATION]"
+                      length="4000"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[KEY_INFORMATION]"
+                      name="KEY_INFORMATION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[OTHER_VEHICLE_TEXT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[OTHER_VEHICLE_TEXT]"
+                      length="500"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[OTHER_VEHICLE_TEXT]"
+                      name="OTHER_VEHICLE_TEXT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[CLOSER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[CLOSER]"
+                      length="500"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[CLOSER]"
+                      name="CLOSER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[FEATURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[FEATURE]"
+                      length="4000"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[FEATURE]"
+                      name="FEATURE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[VATSTATUS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[VATSTATUS]"
+                      length="20"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[VATSTATUS]"
+                      name="VATSTATUS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[DID]"
-                      dataType="i8"
+                      dataType="wstr"
+                      length="50"
                       name="DID" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[STOCK_ITEM_ID]"
@@ -2216,7 +2369,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       name="STOCK_ITEM_ID" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[CREATED_DATE]"
-                      dataType="dbDate"
+                      dataType="date"
                       name="CREATED_DATE" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[CATEGORY]"
@@ -2230,7 +2383,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       name="REGISTRATION" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[REG_CODE]"
-                      dataType="i8"
+                      dataType="i4"
                       name="REG_CODE" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[MAKE]"
@@ -2304,7 +2457,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       name="PREVIOUS_OWNERS" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[PRICE]"
-                      dataType="cy"
+                      dataType="decimal"
                       name="PRICE" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[PRICE_EXTRA]"
@@ -2381,13 +2534,38 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       name="VIDEO_URL" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[DATE_OF_REGISTRATION]"
-                      dataType="dbDate"
+                      dataType="date"
                       name="DATE_OF_REGISTRATION" />
                     <externalMetadataColumn
                       refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[SERVICE_HISTORY]"
                       dataType="wstr"
                       length="100"
                       name="SERVICE_HISTORY" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[KEY_INFORMATION]"
+                      dataType="wstr"
+                      length="4000"
+                      name="KEY_INFORMATION" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[OTHER_VEHICLE_TEXT]"
+                      dataType="wstr"
+                      length="500"
+                      name="OTHER_VEHICLE_TEXT" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[CLOSER]"
+                      dataType="wstr"
+                      length="500"
+                      name="CLOSER" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[FEATURE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FEATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].ExternalColumns[VATSTATUS]"
+                      dataType="wstr"
+                      length="20"
+                      name="VATSTATUS" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2561,7 +2739,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[DOORS]" />
                     <inputColumn
                       refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PRICE]"
-                      cachedDataType="cy"
+                      cachedDataType="decimal"
                       cachedName="PRICE"
                       externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[PRICE]" />
@@ -2594,7 +2772,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[IMAGES]" />
                     <inputColumn
                       refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DID]"
-                      cachedDataType="i8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="DID"
                       externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DealerID]"
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[DID]" />
@@ -2607,13 +2786,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[STOCK_ITEM_ID]" />
                     <inputColumn
                       refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CREATED_DATE]"
-                      cachedDataType="dbDate"
+                      cachedDataType="date"
                       cachedName="CREATED_DATE"
                       externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[CREATED_DATE]" />
                     <inputColumn
                       refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REG_CODE]"
-                      cachedDataType="i8"
+                      cachedDataType="i4"
                       cachedName="REG_CODE"
                       externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegCode]"
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[REG_CODE]" />
@@ -2741,7 +2920,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[VIDEO_URL]" />
                     <inputColumn
                       refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATE_OF_REGISTRATION]"
-                      cachedDataType="dbDate"
+                      cachedDataType="date"
                       cachedName="DATE_OF_REGISTRATION"
                       externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfRegistration]"
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[DATE_OF_REGISTRATION]" />
@@ -2752,6 +2931,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       cachedName="SERVICE_HISTORY"
                       externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ServiceHistory]"
                       lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[SERVICE_HISTORY]" />
+                    <inputColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CLOSER]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="CLOSER"
+                      externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closer]"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[CLOSER]" />
+                    <inputColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FEATURE]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="FEATURE"
+                      externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Feature]"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[FEATURE]" />
+                    <inputColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[KEY_INFORMATION]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="KEY_INFORMATION"
+                      externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KeyInformation]"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[KEY_INFORMATION]" />
+                    <inputColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OTHER_VEHICLE_TEXT]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OTHER_VEHICLE_TEXT"
+                      externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtherVehicleText]"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[OTHER_VEHICLE_TEXT]" />
+                    <inputColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VATSTATUS]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="VATSTATUS"
+                      externalMetadataColumnId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VatStatus]"
+                      lineageId="Package\Save Data to Database\Locally Downloaded CSV.Outputs[Flat File Source Output].Columns[VATSTATUS]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2947,6 +3161,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       dataType="dbTimeStamp2"
                       name="DateImported"
                       scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closer]"
+                      dataType="wstr"
+                      length="500"
+                      name="Closer" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Feature]"
+                      dataType="nText"
+                      name="Feature" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KeyInformation]"
+                      dataType="nText"
+                      name="KeyInformation" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtherVehicleText]"
+                      dataType="wstr"
+                      length="500"
+                      name="OtherVehicleText" />
+                    <externalMetadataColumn
+                      refId="Package\Save Data to Database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VatStatus]"
+                      dataType="wstr"
+                      length="20"
+                      name="VatStatus" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3048,7 +3285,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="235,42"
           Id="Package\Clear Existing Photos from Folder"
@@ -3089,7 +3326,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="480,118">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,41"
               Start="0,0"
               End="0,33.5">
@@ -3111,7 +3348,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="482.75,201">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,38"
               Start="0,0"
               End="0,30.5">
@@ -3133,7 +3370,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="483,281">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="21,40"
               Start="0,0"
               End="21,32.5">
@@ -3167,7 +3404,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="827.5,198.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="57.5,39"
               Start="0,0"
               End="57.5,31.5">
@@ -3201,7 +3438,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="827.916666666667,105">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,51.5"
               Start="0,0"
               End="0,44">
@@ -3223,7 +3460,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="606,321">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="178.666666666667,-216"
               Start="0,0"
               End="178.666666666667,-208.5">
@@ -3289,7 +3526,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package\Save Data to Database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171,42"
           Id="Package\Save Data to Database\OLE DB Destination"
@@ -3317,9 +3554,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

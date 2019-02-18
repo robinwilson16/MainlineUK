@@ -118,11 +118,24 @@
 
         </div>
         <hr class="Divider" />
-        <div class="row">
-            <div class="col-md">
-                @Model.StocklistImport.AdvertDescription1.Transform(To.LowerCase).Transform(To.TitleCase)
+        @if (Model.StocklistImport.KeyInformation != null)
+        {
+            <div class="row">
+                <div class="col-md">
+                    @Model.StocklistImport.KeyInformation.Transform(To.LowerCase).Transform(To.TitleCase)
+                </div>
             </div>
-        </div>
+        }
+
+        @if (Model.StocklistImport.Feature != null)
+        {
+            <div class="row">
+                <div class="col-md">
+                    @Model.StocklistImport.Feature.Transform(To.LowerCase).Transform(To.TitleCase)
+                </div>
+            </div>
+        }
+
         <div class="row">
             <div class="col">
                 @{string vehicleClass = "";}
