@@ -7,6 +7,12 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #cccccc;
+}
+
+.body-content {
+    background-color: #ffffff;
+    padding-top: 20px;
 }
 
 @media(min-width:1400px) {
@@ -62,6 +68,11 @@ body {
     margin-top: -10px;
 }
 
+.header-content {
+    color: #1e90ff;
+    background-color: #ffffff;
+}
+
 .header-content a:link,
 .header-content a:active,
 .header-content a:visited {
@@ -72,6 +83,10 @@ body {
 .header-content a:hover {
     color: #000080;
     font-weight: bold;
+}
+
+nav .SocialMediaLinks {
+    width: 140px;
 }
 
 .navbar-brand {
@@ -249,6 +264,11 @@ header-content hr.Divider {
     margin-top: 8px;
 }
 
+.Vehicle .AttentionGrabber,
+.VehicleDetails .KeyInformation {
+    font-weight: bold;
+}
+
 .Vehicle .Price span,
 .LatestVehicle .Price span,
 .VehicleDetails .Price span {
@@ -345,7 +365,8 @@ header-content hr.Divider {
 }
 
 .navbar {
-  background-color: #000080 !important;
+    background-color: #000080 !important;
+    box-shadow: 0 10px 5px -5px rgba(0,0,0,.75)
 }
 .navbar .navbar-brand {
   color: #ffffff !important;

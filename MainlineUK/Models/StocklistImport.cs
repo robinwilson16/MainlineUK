@@ -92,12 +92,6 @@ namespace MainlineUK.Models
         [Display(Name = "Price Extra")]
         public string PriceExtra { get; set; }
 
-        /*Depricated field*/
-        public string AdvertDescription1 { get; set; }
-
-        /*Depricated field*/
-        public string AdvertDescription2 { get; set; }
-
         [StringLength(50)]
         public string WheelBaseType { get; set; }
 

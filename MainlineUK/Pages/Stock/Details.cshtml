@@ -122,7 +122,9 @@
         {
             <div class="row">
                 <div class="col-md">
-                    @Model.StocklistImport.KeyInformation.Transform(To.LowerCase).Transform(To.TitleCase)
+                    <span class="KeyInformation">
+                        @Model.StocklistImport.KeyInformation.Transform(To.LowerCase).Transform(To.TitleCase)
+                    </span>
                 </div>
             </div>
         }

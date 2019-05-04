@@ -10,11 +10,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MainlineUK.Pages
 {
-    public class StocklistModel : PageModel
+    public class UsedCarsModel : PageModel
     {
         private readonly MainlineUK.Data.ApplicationDbContext _context;
 
-        public StocklistModel(MainlineUK.Data.ApplicationDbContext context)
+        public UsedCarsModel(MainlineUK.Data.ApplicationDbContext context)
         {
             _context = context;
         }

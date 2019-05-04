@@ -1,4 +1,6 @@
-﻿//If make selected then only show models for this make and clear selection
+﻿var advertCharLength = 150;
+
+//If make selected then only show models for this make and clear selection
 $("#FilterMake").change(function (event) {
     var make = $(this).val();
 
@@ -65,8 +67,11 @@ function getMinMonthlyPayment(JSON) {
 }
 
 function getAdvert(advert) {
-    if (advert.length > 200) {
-        advert = advert.substring(0, 197) + "...";
+    if (advert === null) {
+        advert = '';
+    }
+    else if (advert.length > advertCharLength) {
+        advert = advert.substring(0, advertCharLength-3) + "...";
     }
 
     return advert;

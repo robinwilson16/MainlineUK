@@ -201,7 +201,9 @@ function displayStockList() {
                                 <hr class="Divider" />
                                 <div class="row">
                                     <div class="col">
-                                        ${getAdvert(stock[i].advertDescription1)}
+                                        <span class="AttentionGrabber">${getAdvert(stock[i].attentionGrabber)}</span>
+                                        <br />
+                                        ${getAdvert(stock[i].keyInformation)}
                                     </div>
                                 </div>
                                 <div class="row Spacer">

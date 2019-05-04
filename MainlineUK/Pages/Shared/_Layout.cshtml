@@ -15,23 +15,22 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
               asp-fallback-href="~/lib/twitter-bootstrap/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha256-azvvU9xKluwHFJ0Cpgtf0CYzK7zgtOznnzxV4924X1w=" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
               crossorigin="anonymous"
               asp-fallback-href="~/lib/font-awesome/css/all.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css"
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.5/nouislider.min.css"
               crossorigin="anonymous"
               asp-fallback-href="~/lib/noUiSlider/nouislider.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"
               asp-fallback-href="~/lib/ekko-lightbox/ekko-lightbox.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,700" rel="stylesheet">
@@ -42,7 +41,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 align-self-end TopAddress d-none d-lg-block">
-                    <a href="https://goo.gl/maps/nEr5mdFmuuT2" target="_blank" rel="noopener"><i class="fas fa-map-pin"></i> Metrocentre Autoworld, Wellington Road, Dunston, Tyne And Wear, NE11 9HU</a>
+                    Metrocentre Autoworld, Wellington Road, Dunston, NE11 9HU
                 </div>
                 <div class="col-lg">
                     <a asp-page="/">
@@ -65,7 +64,7 @@
             <hr class="Divider d-lg-none" />
             <div class="row">
                 <div class="col TopAddressSmall d-lg-none text-center">
-                    <a href="https://goo.gl/maps/nEr5mdFmuuT2" target="_blank" rel="noopener"><i class="fas fa-map-pin"></i> Metrocentre Autoworld, Wellington Road, Dunston, Tyne And Wear, NE11 9HU</a>
+                    Metrocentre Autoworld, Wellington Road, Dunston, NE11 9HU
                 </div>
             </div>
         </div>
@@ -83,7 +82,7 @@
             </button>
             <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse">
                 @*<partial name="_LoginPartial" />*@
-                <ul class="nav navbar-nav ml-auto w-25 justify-content-end d-none d-lg-inline-flex">
+                <ul class="nav navbar-nav ml-auto justify-content-end d-none d-lg-inline-flex SocialMediaLinks">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="mailto:sales@mainlineuk.com?subject=Website%20Enquiry" title="Visit our Facebook page" target="_blank" rel="noopener"><i class="fas fa-envelope"></i></a>
                     </li>
@@ -94,12 +93,12 @@
                         <a class="nav-link text-light" href="https://twitter.com/mainlineuksales" title="Visit our Twitter page" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
                     </li>
                 </ul>
-                <ul class="navbar-nav w-100">
+                <ul class="navbar-nav w-100 nav-pills nav-fill">
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Stocklist">Stocklist</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/UsedCars">Used Cars</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/AboutUs">About Us</a>
@@ -124,7 +123,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid body-content">
+    <div class="container body-content">
         @*<partial name="_CookieConsentPartial" />*@
         <main role="main" class="pb-3">
             @RenderBody()
@@ -147,12 +146,12 @@
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous">
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"
                 asp-fallback-src="~/lib/twitter-bootstrap/js/bootstrap.bundle.min.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous">
@@ -162,7 +161,7 @@
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous">
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.5/nouislider.min.js"
                 asp-fallback-src="~/lib/noUiSlider/nouislider.min.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous">
@@ -177,7 +176,7 @@
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous">
         </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
 
 

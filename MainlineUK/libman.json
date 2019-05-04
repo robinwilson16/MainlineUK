@@ -4,21 +4,21 @@
   "libraries": [
     {
       "provider": "cdnjs",
-      "library": "jquery@3.3.1",
+      "library": "jquery@3.4.1",
       "destination": "wwwroot/lib/jquery/"
     },
     {
       "provider": "cdnjs",
-      "library": "twitter-bootstrap@4.2.1",
+      "library": "twitter-bootstrap@4.3.1",
       "destination": "wwwroot/lib/twitter-bootstrap/"
     },
-    //{
-    //  "provider": "unpkg",
-    //  "library": "@fortawesome/fontawesome-free@5.6.3",
-    //  "destination": "wwwroot/lib/font-awesome/"
-    //},
     {
-      "library": "noUiSlider@12.1.0",
+      "provider": "cdnjs",
+      "library": "font-awesome@5.8.1",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "noUiSlider@13.1.5",
       "destination": "wwwroot/lib/noUiSlider/"
     },
     {
@@ -30,7 +30,7 @@
       "destination": "wwwroot/lib/ekko-lightbox/"
     },
     {
-      "library": "iframe-resizer@3.6.3",
+      "library": "iframe-resizer@4.1.1",
       "destination": "wwwroot/lib/iframe-resizer/"
     },
     {
