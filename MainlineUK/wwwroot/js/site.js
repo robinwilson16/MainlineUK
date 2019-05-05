@@ -8,13 +8,13 @@ $(document).on('click', '[data-toggle="lightboxOpen"]', function (event) {
     $("#FirstGalleryItem").ekkoLightbox();
 });
 
-//Resize Facebook feed
+//Make Facebook Feed Responsive 100% Height
 $(window).on('resize', function () {
-    setTimeout(function () { changeFBPagePlugin() }, 500);
+    setTimeout(function () { changeFBPagePlugin(); }, 500);
 });
 
 $(window).on('load', function () {
-    setTimeout(function () { changeFBPagePlugin() }, 1500);
+    setTimeout(function () { changeFBPagePlugin(); }, 1500);
 });
 
 changeFBPagePlugin = function () {

@@ -73,7 +73,7 @@ function showStockList() {
             }
 
             htmlData += `
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6">
                     <div class="card LatestVehicle">
                         <div class="card-img-top">
                             ${newStockHtml}
@@ -81,10 +81,10 @@ function showStockList() {
                         </div>
                         <div class="container Details">
                             <div class="row">
-                                <div class="col-xl-8 col-6">
+                                <div class="col-xl-7 col-6">
                                     <a class="OpenVehicle" href="#" data-toggle="modal" data-id="${stock[j].stocklistImportID}" data-target="#vehicleModal" data-loading-text="${stock[j].make} ${stock[j].model} ${stock[j].derivative} (${stock[j].manufacturedYear})"><h2>${stock[j].make} ${stock[j].model}</h2></a>
                                 </div>
-                                <div class="col-xl-4 col-6 text-right Price">
+                                <div class="col-xl-5 col-6 text-right Price">
                                     <span>${getPrice(stock[j].price)}</span>
                                 </div>
                             </div>
@@ -104,6 +104,9 @@ function showStockList() {
                                     <i class="fas fa-palette"></i> ${stock[j].colour}
                                 </div>
                                 <div class="col-6">
+                                    <i class="fas fa-car-side"></i> ${stock[j].bodyType}
+                                </div>
+                                <div class="col-6">
                                     <i class="fas fa-gas-pump"></i> ${stock[j].fuelType}
                                 </div>
                                 <div class="col-6">
@@ -112,7 +115,7 @@ function showStockList() {
                                 <div class="col-6">
                                     <i class="fas fa-door-closed"></i> ${stock[j].doors}
                                 </div>
-                                <div class="col-12">
+                                <div class="col-6">
                                     <i class="fas fa-users"></i> ${getPreviousOwners(stock[j].previousOwners)}
                                 </div>
                             </div>

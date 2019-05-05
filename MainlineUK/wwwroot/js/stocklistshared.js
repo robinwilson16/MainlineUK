@@ -93,10 +93,10 @@ function getAdvert(advert) {
 
 function getPreviousOwners(prevOwners) {
     if (prevOwners === 1) {
-        prevOwners += " Previous Owner";
+        prevOwners += " Owner";
     }
     else if (prevOwners > 1) {
-        prevOwners += " Previous Owners";
+        prevOwners += " Owners";
     }
     else {
         prevOwners = "Unknown";
@@ -197,11 +197,11 @@ function photosHtml(itemID, vehiclePhotos) {
                         ${slideshowItems}
                     </div>
                     <a class="carousel-control-prev" href="#PhotoCarousel${itemID}" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
                         <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#PhotoCarousel${itemID}" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>

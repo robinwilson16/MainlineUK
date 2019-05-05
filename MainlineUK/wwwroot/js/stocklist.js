@@ -225,6 +225,9 @@ function displayStockList() {
                                                     <i class="fas fa-palette"></i> ${stock[i].colour}
                                                 </div>
                                                 <div class="col-md-3 col-sm-4 col-6">
+                                                    <i class="fas fa-car-side"></i> ${stock[i].bodyType}
+                                                </div>
+                                                <div class="col-md-3 col-sm-4 col-6">
                                                     <i class="fas fa-gas-pump"></i> ${stock[i].fuelType}
                                                 </div>
                                                 <div class="col-md-3 col-sm-4 col-6">
@@ -233,7 +236,7 @@ function displayStockList() {
                                                 <div class="col-md-3 col-sm-4 col-6">
                                                     <i class="fas fa-door-closed"></i> ${stock[i].doors}
                                                 </div>
-                                                <div class="col-md-6 col-sm-8 col-12">
+                                                <div class="col-md-3 col-sm-4 col-6">
                                                     <i class="fas fa-users"></i> ${getPreviousOwners(stock[i].previousOwners)}
                                                 </div>
                                             </div>
