@@ -25,6 +25,7 @@ namespace MainlineUK.Pages
         public string SortRegYear { get; set; }
         public string SortPrice { get; set; }
 
+        public IList<SelectListItem> BodyTypes { get; set; }
         public IList<SelectListItem> Makes { get; set; }
         public IList<SelectListGroup> ModelMakes { get; set; }
         public IList<SelectListItem> Models { get; set; }
@@ -50,6 +51,18 @@ namespace MainlineUK.Pages
             )
         {
             //Select Lists
+            BodyTypes = await _context.StocklistImport
+                .Select(
+                    s => new SelectListItem
+                    {
+                        Value = s.BodyType,
+                        Text = s.BodyType,
+                        Selected = s.BodyType == body_type
+                    }
+                )
+                .Distinct()
+                .ToListAsync();
+
             Makes = await _context.StocklistImport
                 .Select(
                     s => new SelectListItem
@@ -73,13 +86,13 @@ namespace MainlineUK.Pages
                 .ToListAsync();
 
             Models = _context.StocklistImport
-                .GroupBy(grp => new { grp.Make, grp.Model })
+                .GroupBy(grp => new { grp.Make, grp.Model, grp.BodyType })
                 .ToList() /*Fix for Net Core 2.1 to avoid must be reducible node error*/
                 .Select(
                     s => new SelectListItem
                     {
                         Value = s.Key.Model,
-                        Text = s.Key.Model,
+                        Text = s.Key.Model + " (" + s.Key.BodyType + ")",
                         Selected = s.Key.Model == model,
                         Group = ModelMakes.SingleOrDefault(m => m.Name == s.Key.Make)
                     }

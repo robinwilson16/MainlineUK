@@ -1,6 +1,20 @@
 ﻿var advertCharLength = 150;
 
 //If make selected then only show models for this make and clear selection
+$("#FilterBodyType").change(function (event) {
+    var bodyType = $(this).val();
+
+    var modelDropDown = $("#FilterModel");
+    if (bodyType === "") {
+        $("option, optgroup", modelDropDown).show();
+    }
+    else {
+        modelDropDown.val("");
+        $("optgroup, optgroup > option", modelDropDown).hide();
+        $("optgroup:contains('" + bodyType + "'), optgroup > option:contains('" + bodyType + "')", modelDropDown).show();
+    }
+});
+
 $("#FilterMake").change(function (event) {
     var make = $(this).val();
 

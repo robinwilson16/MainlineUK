@@ -49,12 +49,17 @@ function filterStocklist() {
         let stocklist = JSON.parse(localStorage.getItem("stocklist"));
         let filteredStocklist = stocklist.stock;
 
+        let bodyType = $("#FilterBodyType").val();
         let make = $("#FilterMake").val();
         let model = $("#FilterModel").val();
         let minPrice = $("#FilterMinPrice").val();
         let maxPrice = $("#FilterMaxPrice").val();
         let minBudget = $("#FilterMinBudget").val();
         let maxBudget = $("#FilterMaxBudget").val();
+
+        if (bodyType.length > 1) {
+            filteredStocklist = filteredStocklist.filter(stock => stock.bodyType === bodyType);
+        }
 
         if (make.length > 1) {
             filteredStocklist = filteredStocklist.filter(stock => stock.make === make);

@@ -110,11 +110,10 @@ nav .SocialMediaLinks {
 }
 
 .Filters {
-    background-color: #1e90ff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    background-color: #eeeeee;
+    border: 2px solid #000080;
     padding-top: 14px;
-    color: #ffffff;
+    color: #000080;
 }
 
 .Filters select {
@@ -134,13 +133,8 @@ nav .SocialMediaLinks {
     background-color: #1e90ff;
 }
 
-.VideoBanner {
-    padding: 0px;
-}
-
 .VideoBanner video {
     display: block;
-    border-radius: 4px;
     border: 1px solid #000080;
     width: 100%;
 }
