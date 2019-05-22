@@ -14,7 +14,7 @@
     },
     {
       "provider": "cdnjs",
-      "library": "font-awesome@5.8.1",
+      "library": "font-awesome@5.8.2",
       "destination": "wwwroot/lib/font-awesome/"
     },
     {
