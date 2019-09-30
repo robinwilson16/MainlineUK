@@ -11,7 +11,7 @@
       "destination": "wwwroot/lib/twitter-bootstrap/"
     },
     {
-      "library": "font-awesome@5.8.2",
+      "library": "font-awesome@5.11.2",
       "destination": "wwwroot/lib/font-awesome/"
     },
     {
@@ -27,11 +27,7 @@
       "destination": "wwwroot/lib/ekko-lightbox/"
     },
     {
-      "library": "iframe-resizer@4.1.1",
-      "destination": "wwwroot/lib/iframe-resizer/"
-    },
-    {
-      "library": "lodash.js@4.17.11",
+      "library": "lodash.js@4.17.15",
       "destination": "wwwroot/lib/lodash.js/"
     }
   ]

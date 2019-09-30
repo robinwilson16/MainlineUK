@@ -608,7 +608,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    each(mapping.aryMethod[aryKey], function(key) {
 	      var func = _[mapping.remap[key] || key];
 	      if (func) {
-
 	        pairs.push([key, wrap(key, func, _)]);
 	      }
 	    });
