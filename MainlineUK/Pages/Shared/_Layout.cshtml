@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
         <link rel="stylesheet" href="~/lib/noUiSlider/nouislider.css" />
         <link rel="stylesheet" href="~/lib/ekko-lightbox/ekko-lightbox.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
@@ -27,11 +26,11 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"
               asp-fallback-href="~/lib/ekko-lightbox/ekko-lightbox.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
+
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Exo+2:400,700" rel="stylesheet">
-
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <div class="container-fluid header-content">
@@ -142,7 +141,6 @@
         <script src="~/lib/noUiSlider/nouislider.js" asp-append-version="true"></script>
         <script src="~/lib/ekko-lightbox/ekko-lightbox.js" asp-append-version="true"></script>
         <script src="~/lib/lodash.js/lodash.js" asp-append-version="true"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
@@ -175,9 +173,9 @@
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous">
         </script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
 
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
