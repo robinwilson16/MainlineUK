@@ -62,9 +62,9 @@ namespace MainlineUK.Pages
                 .Distinct()
                 .ToListAsync();
 
-            Models = _context.StocklistImport
+            Models = (await _context.StocklistImport
+                .ToListAsync())
                 .GroupBy(grp => new { grp.Make, grp.Model, grp.BodyType })
-                .ToList() /*Fix for Net Core 2.1 to avoid must be reducible node error*/
                 .Select(
                     s => new SelectListItem
                     {

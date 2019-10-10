@@ -17,19 +17,20 @@ using System.Globalization;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.Extensions.Hosting;
 
 namespace MainlineUK
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
-            _env = env;
+            HostingEnvironment = env;
         }
 
         public static IConfiguration Configuration { get; private set; }
-        private IHostingEnvironment _env;
+        public IWebHostEnvironment HostingEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -41,7 +42,7 @@ namespace MainlineUK
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            var webRoot = _env.WebRootPath;
+            var webRoot = HostingEnvironment.WebRootPath;
 
             services.AddSingleton<IFileProvider>(
                 new PhysicalFileProvider(
@@ -62,14 +63,14 @@ namespace MainlineUK
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         //public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         public void Configure(
             IApplicationBuilder app,
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ApplicationDbContext context,
             RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager,
@@ -89,11 +90,14 @@ namespace MainlineUK
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
 
+            app.UseRouting();
             app.UseAuthentication();
-
-            app.UseMvc();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
 
             //Ensure currencies and dates are set to GB
             var cultureInfo = new CultureInfo("en-GB");
