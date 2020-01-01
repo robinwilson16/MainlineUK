@@ -7,7 +7,7 @@
       "destination": "wwwroot/lib/jquery/"
     },
     {
-      "library": "twitter-bootstrap@4.3.1",
+      "library": "twitter-bootstrap@4.4.1",
       "destination": "wwwroot/lib/twitter-bootstrap/"
     },
     {
@@ -15,11 +15,11 @@
       "destination": "wwwroot/lib/font-awesome/"
     },
     {
-      "library": "noUiSlider@13.1.5",
+      "library": "noUiSlider@14.0.3",
       "destination": "wwwroot/lib/noUiSlider/"
     },
     {
-      "library": "wnumb@1.1.0",
+      "library": "wnumb@1.2.0",
       "destination": "wwwroot/lib/wnumb/"
     },
     {

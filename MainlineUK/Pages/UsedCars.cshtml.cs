@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MainlineUK.Models;
+using MainlineUK.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -100,10 +101,10 @@ namespace MainlineUK.Pages
                     .ThenBy(s => s.Text)
                 .ToList();
 
-            MinPrice = Shared.NumberFunctions.CurrencyToInt(min_price);
-            MaxPrice = Shared.NumberFunctions.CurrencyToInt(max_price);
-            MinBudget = Shared.NumberFunctions.CurrencyToInt(min_budget);
-            MaxBudget = Shared.NumberFunctions.CurrencyToInt(max_budget);
+            MinPrice = NumberFunctions.CurrencyToInt(min_price);
+            MaxPrice = NumberFunctions.CurrencyToInt(max_price);
+            MinBudget = NumberFunctions.CurrencyToInt(min_budget);
+            MaxBudget = NumberFunctions.CurrencyToInt(max_budget);
 
             //Add a default sort order
             if (sortOrder == null)

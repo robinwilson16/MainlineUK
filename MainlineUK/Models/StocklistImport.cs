@@ -43,7 +43,7 @@ namespace MainlineUK.Models
 
         public int RegCode { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(50)]
         public string Make { get; set; }
 
